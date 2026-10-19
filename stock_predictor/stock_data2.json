@@ -1,0 +1,4738 @@
+{
+  "signature": {
+    "version": 4,
+    "files": [
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0000.parquet",
+        "size": 11130377,
+        "mtime_ns": 1792308423648000311
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0001.parquet",
+        "size": 13246406,
+        "mtime_ns": 1792308511071238402
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0002.parquet",
+        "size": 11851892,
+        "mtime_ns": 1792308555814798749
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0003.parquet",
+        "size": 11271761,
+        "mtime_ns": 1792308723195125286
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0004.parquet",
+        "size": 10320651,
+        "mtime_ns": 1792308899139661062
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0005.parquet",
+        "size": 9625325,
+        "mtime_ns": 1792309271992091096
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0006.parquet",
+        "size": 7409157,
+        "mtime_ns": 1792309929937458719
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0007.parquet",
+        "size": 7413077,
+        "mtime_ns": 1792310140691450085
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0008.parquet",
+        "size": 7755474,
+        "mtime_ns": 1792310287722967789
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0009.parquet",
+        "size": 6256997,
+        "mtime_ns": 1792310457660363928
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0010.parquet",
+        "size": 6352196,
+        "mtime_ns": 1792310645328247264
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0011.parquet",
+        "size": 8710706,
+        "mtime_ns": 1792310813485811407
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0012.parquet",
+        "size": 6299538,
+        "mtime_ns": 1792311443930732682
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0013.parquet",
+        "size": 5094144,
+        "mtime_ns": 1792311548249758835
+      },
+      {
+        "name": "/home/sadhu/PycharmProjects/project/stock_data2/daily/stocks_0014.parquet",
+        "size": 6104072,
+        "mtime_ns": 1792311757149458364
+      }
+    ],
+    "features": [
+      "Open",
+      "High",
+      "Low",
+      "Close",
+      "Volume"
+    ],
+    "sequence_length": 30,
+    "test_size": 30,
+    "row_limit": 150000,
+    "min_rows_per_ticker": 250
+  },
+  "ticker_ids": {
+    "000660.KS": 1,
+    "005930.KS": 2,
+    "0700.HK": 3,
+    "0857.HK": 4,
+    "0939.HK": 5,
+    "1288.HK": 6,
+    "1398.HK": 7,
+    "2222.SR": 8,
+    "2330.TW": 9,
+    "3988.HK": 10,
+    "688825.SS": 11,
+    "A": 12,
+    "AA": 13,
+    "AAL": 14,
+    "AAPL": 15,
+    "ABBV": 16,
+    "ABR": 17,
+    "ABT": 18,
+    "ACGL": 19,
+    "ACI": 20,
+    "ACLS": 21,
+    "ACM": 22,
+    "ADBE": 23,
+    "ADI": 24,
+    "ADP": 25,
+    "ADTN": 26,
+    "AEE": 27,
+    "AEP": 28,
+    "AES": 29,
+    "AFL": 30,
+    "AGCO": 31,
+    "AGL": 32,
+    "AGNC": 33,
+    "AI.PA": 34,
+    "AIZ": 35,
+    "AJG": 36,
+    "AKAM": 37,
+    "ALB": 38,
+    "ALGM": 39,
+    "ALGN": 40,
+    "ALK": 41,
+    "ALL": 42,
+    "ALLY": 43,
+    "ALV": 44,
+    "AMAT": 45,
+    "AMCR": 46,
+    "AMD": 47,
+    "AMG": 48,
+    "AMGN": 49,
+    "AMH": 50,
+    "AMP": 51,
+    "AMT": 52,
+    "AMZN": 53,
+    "AON": 54,
+    "AOS": 55,
+    "AOSL": 56,
+    "APA": 57,
+    "APAM": 58,
+    "APD": 59,
+    "APO": 60,
+    "APTV": 61,
+    "ARCB": 62,
+    "ARCC": 63,
+    "ARE": 64,
+    "ARES": 65,
+    "ARR": 66,
+    "ASML.AS": 67,
+    "ASTE": 68,
+    "ATO": 69,
+    "ATR": 70,
+    "AVA": 71,
+    "AVB": 72,
+    "AVGO": 73,
+    "AVY": 74,
+    "AWI": 75,
+    "AXON": 76,
+    "AXP": 77,
+    "AXS": 78,
+    "AXSM": 79,
+    "AXTA": 80,
+    "AZO": 81,
+    "BA": 82,
+    "BAC": 83,
+    "BALL": 84,
+    "BAM": 85,
+    "BAS.DE": 86,
+    "BATRA": 87,
+    "BATRK": 88,
+    "BAX": 89,
+    "BAYN.DE": 90,
+    "BBY": 91,
+    "BCPC": 92,
+    "BCSF": 93,
+    "BDX": 94,
+    "BELFA": 95,
+    "BEN": 96,
+    "BEP": 97,
+    "BF-B": 98,
+    "BHE": 99,
+    "BHF": 100,
+    "BHP": 101,
+    "BIIB": 102,
+    "BIP": 103,
+    "BKH": 104,
+    "BKNG": 105,
+    "BKR": 106,
+    "BLK": 107,
+    "BMY": 108,
+    "BN": 109,
+    "BOKF": 110,
+    "BRKL": 111,
+    "BRO": 112,
+    "BSX": 113,
+    "BW": 114,
+    "BWA": 115,
+    "BX": 116,
+    "BXMT": 117,
+    "BXP": 118,
+    "BZH": 119,
+    "C": 120,
+    "CACC": 121,
+    "CACI": 122,
+    "CAG": 123,
+    "CALX": 124,
+    "CAMT": 125,
+    "CARR": 126,
+    "CASY": 127,
+    "CAT": 128,
+    "CB": 129,
+    "CCI": 130,
+    "CCK": 131,
+    "CCL": 132,
+    "CCS": 133,
+    "CDNS": 134,
+    "CEVA": 135,
+    "CF": 136,
+    "CFG": 137,
+    "CG": 138,
+    "CHDN": 139,
+    "CHEF": 140,
+    "CHRW": 141,
+    "CIA": 142,
+    "CIEN": 143,
+    "CIM": 144,
+    "CINF": 145,
+    "CIR": 146,
+    "CL": 147,
+    "CLF": 148,
+    "CLS": 149,
+    "CME": 150,
+    "CMG": 151,
+    "CMP": 152,
+    "CMS": 153,
+    "CNH": 154,
+    "CNI": 155,
+    "CNK": 156,
+    "CNO": 157,
+    "CNP": 158,
+    "COF": 159,
+    "COHR": 160,
+    "COLB": 161,
+    "COO": 162,
+    "COP": 163,
+    "COST": 164,
+    "CP": 165,
+    "CPB": 166,
+    "CPK": 167,
+    "CPRT": 168,
+    "CPSS": 169,
+    "CPT": 170,
+    "CR": 171,
+    "CRL": 172,
+    "CRUS": 173,
+    "CRWD": 174,
+    "CSCO": 175,
+    "CSWC": 176,
+    "CTAS": 177,
+    "CTS": 178,
+    "CTSH": 179,
+    "CTVA": 180,
+    "CUBE": 181,
+    "CUBI": 182,
+    "CUZ": 183,
+    "CVI": 184,
+    "CVX": 185,
+    "CWEN": 186,
+    "CZR": 187,
+    "D": 188,
+    "DAL": 189,
+    "DAN": 190,
+    "DE": 191,
+    "DEI": 192,
+    "DELL": 193,
+    "DFH": 194,
+    "DG": 195,
+    "DGX": 196,
+    "DHI": 197,
+    "DHR": 198,
+    "DIOD": 199,
+    "DIS": 200,
+    "DK": 201,
+    "DKNG": 202,
+    "DLR": 203,
+    "DLTR": 204,
+    "DNOW": 205,
+    "DOC": 206,
+    "DORM": 207,
+    "DPZ": 208,
+    "DRI": 209,
+    "DTE": 210,
+    "DUK": 211,
+    "DVN": 212,
+    "DX": 213,
+    "DXCM": 214,
+    "DY": 215,
+    "EBAY": 216,
+    "ECL": 217,
+    "ECPG": 218,
+    "ED": 219,
+    "EFC": 220,
+    "EFX": 221,
+    "EG": 222,
+    "ELS": 223,
+    "EME": 224,
+    "EMR": 225,
+    "ENTG": 226,
+    "EOG": 227,
+    "EQIX": 228,
+    "EQNR.OL": 229,
+    "EQR": 230,
+    "EQT": 231,
+    "ESS": 232,
+    "ETN": 233,
+    "ETR": 234,
+    "ETSY": 235,
+    "EVRG": 236,
+    "EW": 237,
+    "EWBC": 238,
+    "EXC": 239,
+    "EXPD": 240,
+    "EXR": 241,
+    "EXTR": 242,
+    "EZPW": 243,
+    "FAF": 244,
+    "FANG": 245,
+    "FAST": 246,
+    "FCFS": 247,
+    "FCX": 248,
+    "FDUS": 249,
+    "FE": 250,
+    "FG": 251,
+    "FHI": 252,
+    "FHN": 253,
+    "FITB": 254,
+    "FIX": 255,
+    "FLEX": 256,
+    "FLOW": 257,
+    "FLR": 258,
+    "FMC": 259,
+    "FN": 260,
+    "FNF": 261,
+    "FORM": 262,
+    "FORR": 263,
+    "FRT": 264,
+    "FSK": 265,
+    "FSLY": 266,
+    "FTNT": 267,
+    "FULT": 268,
+    "FWONA": 269,
+    "FWONK": 270,
+    "GBDC": 271,
+    "GD": 272,
+    "GE": 273,
+    "GEHC": 274,
+    "GILD": 275,
+    "GIS": 276,
+    "GL": 277,
+    "GLPI": 278,
+    "GLW": 279,
+    "GNTX": 280,
+    "GNW": 281,
+    "GO": 282,
+    "GOOGL": 283,
+    "GPK": 284,
+    "GRBK": 285,
+    "GRWG": 286,
+    "GS": 287,
+    "GSBD": 288,
+    "GXO": 289,
+    "HAL": 290,
+    "HASI": 291,
+    "HBAN": 292,
+    "HCA": 293,
+    "HD": 294,
+    "HE": 295,
+    "HEI": 296,
+    "HIG": 297,
+    "HIW": 298,
+    "HLIT": 299,
+    "HLNE": 300,
+    "HLT": 301,
+    "HOG": 302,
+    "HON": 303,
+    "HOV": 304,
+    "HPE": 305,
+    "HPQ": 306,
+    "HRL": 307,
+    "HRZN": 308,
+    "HSY": 309,
+    "HTGC": 310,
+    "HTLD": 311,
+    "HUBB": 312,
+    "HUBG": 313,
+    "HUM": 314,
+    "HWC": 315,
+    "HWM": 316,
+    "IBM": 317,
+    "ICE": 318,
+    "ICL": 319,
+    "IDA": 320,
+    "IDXX": 321,
+    "IEP": 322,
+    "ILMN": 323,
+    "IMAX": 324,
+    "IMKTA": 325,
+    "INCY": 326,
+    "INSP": 327,
+    "INTC": 328,
+    "INVH": 329,
+    "IP": 330,
+    "IQV": 331,
+    "IRM": 332,
+    "ISRG": 333,
+    "IT": 334,
+    "ITT": 335,
+    "ITW": 336,
+    "IVR": 337,
+    "IVZ": 338,
+    "J": 339,
+    "JBHT": 340,
+    "JBL": 341,
+    "JBLU": 342,
+    "JCI": 343,
+    "JNJ": 344,
+    "JPM": 345,
+    "KBH": 346,
+    "KBR": 347,
+    "KEY": 348,
+    "KHC": 349,
+    "KIM": 350,
+    "KKR": 351,
+    "KLAC": 352,
+    "KMB": 353,
+    "KMI": 354,
+    "KNX": 355,
+    "KO": 356,
+    "KR": 357,
+    "KRC": 358,
+    "KREF": 359,
+    "LBRDK": 360,
+    "LDOS": 361,
+    "LEA": 362,
+    "LEN": 363,
+    "LGIH": 364,
+    "LH": 365,
+    "LHX": 366,
+    "LII": 367,
+    "LIN": 368,
+    "LITE": 369,
+    "LLY": 370,
+    "LMT": 371,
+    "LNC": 372,
+    "LNG": 373,
+    "LNT": 374,
+    "LOW": 375,
+    "LRCX": 376,
+    "LSCC": 377,
+    "LTC": 378,
+    "LUV": 379,
+    "LVS": 380,
+    "LYV": 381,
+    "MA": 382,
+    "MAA": 383,
+    "MAIN": 384,
+    "MAR": 385,
+    "MAS": 386,
+    "MATX": 387,
+    "MBUU": 388,
+    "MCD": 389,
+    "MCFT": 390,
+    "MCHP": 391,
+    "MCO": 392,
+    "MCS": 393,
+    "MDLZ": 394,
+    "MDT": 395,
+    "MEI": 396,
+    "MELI": 397,
+    "MET": 398,
+    "META": 399,
+    "MFA": 400,
+    "MGA": 401,
+    "MGEE": 402,
+    "MGM": 403,
+    "MHK": 404,
+    "MKC": 405,
+    "MKSI": 406,
+    "MLCO": 407,
+    "MMM": 408,
+    "MNST": 409,
+    "MO": 410,
+    "MOD": 411,
+    "MOS": 412,
+    "MPC": 413,
+    "MPWR": 414,
+    "MRK": 415,
+    "MRTN": 416,
+    "MS": 417,
+    "MSFT": 418,
+    "MSGE": 419,
+    "MSGS": 420,
+    "MTB": 421,
+    "MTD": 422,
+    "MTH": 423,
+    "MTSI": 424,
+    "MTZ": 425,
+    "MU": 426,
+    "MXL": 427,
+    "NAVI": 428,
+    "NCLH": 429,
+    "NEE": 430,
+    "NESN.SW": 431,
+    "NET": 432,
+    "NFG": 433,
+    "NFLX": 434,
+    "NGVC": 435,
+    "NHI": 436,
+    "NI": 437,
+    "NJR": 438,
+    "NKE": 439,
+    "NLY": 440,
+    "NMFC": 441,
+    "NNI": 442,
+    "NNN": 443,
+    "NOC": 444,
+    "NOVN.SW": 445,
+    "NOW": 446,
+    "NTAP": 447,
+    "NTR": 448,
+    "NTRS": 449,
+    "NUE": 450,
+    "NVDA": 451,
+    "NVR": 452,
+    "NVTS": 453,
+    "NWE": 454,
+    "O": 455,
+    "OBDC": 456,
+    "OC": 457,
+    "OCSL": 458,
+    "ODFL": 459,
+    "OGE": 460,
+    "OHI": 461,
+    "OKE": 462,
+    "OKTA": 463,
+    "OMF": 464,
+    "ON": 465,
+    "ONB": 466,
+    "ORC": 467,
+    "ORCL": 468,
+    "ORLY": 469,
+    "OSK": 470,
+    "OWL": 471,
+    "OXY": 472,
+    "PANW": 473,
+    "PAYX": 474,
+    "PBF": 475,
+    "PCAR": 476,
+    "PCG": 477,
+    "PDFS": 478,
+    "PDM": 479,
+    "PEG": 480,
+    "PENN": 481,
+    "PFE": 482,
+    "PFGC": 483,
+    "PFLT": 484,
+    "PG": 485,
+    "PGR": 486,
+    "PH": 487,
+    "PHM": 488,
+    "PII": 489,
+    "PKG": 490,
+    "PLD": 491,
+    "PLTR": 492,
+    "PLXS": 493,
+    "PM": 494,
+    "PNFP": 495,
+    "PNNT": 496,
+    "PNW": 497,
+    "PODD": 498,
+    "POR": 499,
+    "POWI": 500,
+    "PPG": 501,
+    "PPL": 502,
+    "PRAA": 503,
+    "PRG": 504,
+    "PRI": 505,
+    "PRU": 506,
+    "PSA": 507,
+    "PSEC": 508,
+    "PSX": 509,
+    "PWR": 510,
+    "PYPL": 511,
+    "QCOM": 512,
+    "QRVO": 513,
+    "RBC": 514,
+    "RCL": 515,
+    "REG": 516,
+    "REGN": 517,
+    "RF": 518,
+    "RGA": 519,
+    "RIO": 520,
+    "RITM": 521,
+    "RMBS": 522,
+    "RMD": 523,
+    "RNR": 524,
+    "ROST": 525,
+    "RPM": 526,
+    "RPRX": 527,
+    "RS": 528,
+    "RTX": 529,
+    "SAIA": 530,
+    "SANM": 531,
+    "SBAC": 532,
+    "SBNY": 533,
+    "SBRA": 534,
+    "SBUX": 535,
+    "SCCO": 536,
+    "SCHW": 537,
+    "SCM": 538,
+    "SEIC": 539,
+    "SFM": 540,
+    "SHW": 541,
+    "SITM": 542,
+    "SJM": 543,
+    "SLAB": 544,
+    "SLB": 545,
+    "SLG": 546,
+    "SLGN": 547,
+    "SLM": 548,
+    "SLRC": 549,
+    "SMG": 550,
+    "SMP": 551,
+    "SMTC": 552,
+    "SNA": 553,
+    "SNDR": 554,
+    "SNN": 555,
+    "SNPS": 556,
+    "SO": 557,
+    "SON": 558,
+    "SPCX": 559,
+    "SPG": 560,
+    "SPGI": 561,
+    "SPT": 562,
+    "SQM": 563,
+    "SR": 564,
+    "SRE": 565,
+    "SSD": 566,
+    "STC": 567,
+    "STE": 568,
+    "STEP": 569,
+    "STLD": 570,
+    "STN": 571,
+    "STRT": 572,
+    "STT": 573,
+    "STWD": 574,
+    "STX": 575,
+    "STZ": 576,
+    "SUI": 577,
+    "SWK": 578,
+    "SWKS": 579,
+    "SWX": 580,
+    "SYK": 581,
+    "SYY": 582,
+    "T": 583,
+    "TAP": 584,
+    "TCPC": 585,
+    "TDG": 586,
+    "TECH": 587,
+    "TECK": 588,
+    "TEL": 589,
+    "TEN": 590,
+    "TER": 591,
+    "TEX": 592,
+    "THRM": 593,
+    "TJX": 594,
+    "TKR": 595,
+    "TM": 596,
+    "TMO": 597,
+    "TOL": 598,
+    "TPG": 599,
+    "TPVG": 600,
+    "TREX": 601,
+    "TRGP": 602,
+    "TRI": 603,
+    "TRIN": 604,
+    "TROW": 605,
+    "TRV": 606,
+    "TSCO": 607,
+    "TSLA": 608,
+    "TSN": 609,
+    "TT": 610,
+    "TTE": 611,
+    "TTEK": 612,
+    "TTMI": 613,
+    "TWO": 614,
+    "TXT": 615,
+    "UAL": 616,
+    "UBER": 617,
+    "UDR": 618,
+    "UMBF": 619,
+    "UMH": 620,
+    "UNFI": 621,
+    "UNH": 622,
+    "UNM": 623,
+    "UNP": 624,
+    "UPS": 625,
+    "URI": 626,
+    "USFD": 627,
+    "USX": 628,
+    "V": 629,
+    "VALE": 630,
+    "VECO": 631,
+    "VICI": 632,
+    "VLGEA": 633,
+    "VLO": 634,
+    "VNO": 635,
+    "VRTS": 636,
+    "VRTX": 637,
+    "VTR": 638,
+    "VTRS": 639,
+    "VZ": 640,
+    "WAL": 641,
+    "WAT": 642,
+    "WBS": 643,
+    "WDC": 644,
+    "WEC": 645,
+    "WELL": 646,
+    "WHF": 647,
+    "WMB": 648,
+    "WMK": 649,
+    "WMT": 650,
+    "WOLF": 651,
+    "WOR": 652,
+    "WPC": 653,
+    "WRB": 654,
+    "WRLD": 655,
+    "WST": 656,
+    "WTW": 657,
+    "WYNN": 658,
+    "XEL": 659,
+    "XOM": 660,
+    "XPEL": 661,
+    "XPO": 662,
+    "XRAY": 663,
+    "YUM": 664,
+    "ZBH": 665,
+    "ZBRA": 666,
+    "ZION": 667,
+    "ZS": 668,
+    "ZTS": 669
+  },
+  "segments": [
+    {
+      "ticker": "000660.KS",
+      "ticker_id": 1,
+      "start": 0,
+      "end": 3191
+    },
+    {
+      "ticker": "005930.KS",
+      "ticker_id": 2,
+      "start": 3191,
+      "end": 6382
+    },
+    {
+      "ticker": "0700.HK",
+      "ticker_id": 3,
+      "start": 6382,
+      "end": 9573
+    },
+    {
+      "ticker": "0857.HK",
+      "ticker_id": 4,
+      "start": 9573,
+      "end": 12764
+    },
+    {
+      "ticker": "0939.HK",
+      "ticker_id": 5,
+      "start": 12764,
+      "end": 15955
+    },
+    {
+      "ticker": "1288.HK",
+      "ticker_id": 6,
+      "start": 15955,
+      "end": 19146
+    },
+    {
+      "ticker": "1398.HK",
+      "ticker_id": 7,
+      "start": 19146,
+      "end": 22337
+    },
+    {
+      "ticker": "2222.SR",
+      "ticker_id": 8,
+      "start": 22337,
+      "end": 24046
+    },
+    {
+      "ticker": "2330.TW",
+      "ticker_id": 9,
+      "start": 24046,
+      "end": 27237
+    },
+    {
+      "ticker": "3988.HK",
+      "ticker_id": 10,
+      "start": 27237,
+      "end": 30428
+    },
+    {
+      "ticker": "A",
+      "ticker_id": 12,
+      "start": 30428,
+      "end": 33916
+    },
+    {
+      "ticker": "AA",
+      "ticker_id": 13,
+      "start": 33916,
+      "end": 37325
+    },
+    {
+      "ticker": "AAL",
+      "ticker_id": 14,
+      "start": 37325,
+      "end": 40516
+    },
+    {
+      "ticker": "AAPL",
+      "ticker_id": 15,
+      "start": 40516,
+      "end": 43707
+    },
+    {
+      "ticker": "ABBV",
+      "ticker_id": 16,
+      "start": 43707,
+      "end": 46898
+    },
+    {
+      "ticker": "ABR",
+      "ticker_id": 17,
+      "start": 46898,
+      "end": 50469
+    },
+    {
+      "ticker": "ABT",
+      "ticker_id": 18,
+      "start": 50469,
+      "end": 53660
+    },
+    {
+      "ticker": "ACGL",
+      "ticker_id": 19,
+      "start": 53660,
+      "end": 57231
+    },
+    {
+      "ticker": "ACI",
+      "ticker_id": 20,
+      "start": 57231,
+      "end": 58816
+    },
+    {
+      "ticker": "ACLS",
+      "ticker_id": 21,
+      "start": 58816,
+      "end": 62304
+    },
+    {
+      "ticker": "ACM",
+      "ticker_id": 22,
+      "start": 62304,
+      "end": 65875
+    },
+    {
+      "ticker": "ADBE",
+      "ticker_id": 23,
+      "start": 65875,
+      "end": 68936
+    },
+    {
+      "ticker": "ADI",
+      "ticker_id": 24,
+      "start": 68936,
+      "end": 72127
+    },
+    {
+      "ticker": "ADP",
+      "ticker_id": 25,
+      "start": 72127,
+      "end": 75318
+    },
+    {
+      "ticker": "ADTN",
+      "ticker_id": 26,
+      "start": 75318,
+      "end": 78889
+    },
+    {
+      "ticker": "AEE",
+      "ticker_id": 27,
+      "start": 78889,
+      "end": 81950
+    },
+    {
+      "ticker": "AEP",
+      "ticker_id": 28,
+      "start": 81950,
+      "end": 85011
+    },
+    {
+      "ticker": "AES",
+      "ticker_id": 29,
+      "start": 85011,
+      "end": 88072
+    },
+    {
+      "ticker": "AFL",
+      "ticker_id": 30,
+      "start": 88072,
+      "end": 91263
+    },
+    {
+      "ticker": "AGCO",
+      "ticker_id": 31,
+      "start": 91263,
+      "end": 94672
+    },
+    {
+      "ticker": "AGL",
+      "ticker_id": 32,
+      "start": 94672,
+      "end": 96056
+    },
+    {
+      "ticker": "AGNC",
+      "ticker_id": 33,
+      "start": 96056,
+      "end": 99627
+    },
+    {
+      "ticker": "AI.PA",
+      "ticker_id": 34,
+      "start": 99627,
+      "end": 103198
+    },
+    {
+      "ticker": "AIZ",
+      "ticker_id": 35,
+      "start": 103198,
+      "end": 106769
+    },
+    {
+      "ticker": "AJG",
+      "ticker_id": 36,
+      "start": 106769,
+      "end": 109960
+    },
+    {
+      "ticker": "AKAM",
+      "ticker_id": 37,
+      "start": 109960,
+      "end": 113531
+    },
+    {
+      "ticker": "ALB",
+      "ticker_id": 38,
+      "start": 113531,
+      "end": 116940
+    },
+    {
+      "ticker": "ALGM",
+      "ticker_id": 39,
+      "start": 116940,
+      "end": 118438
+    },
+    {
+      "ticker": "ALGN",
+      "ticker_id": 40,
+      "start": 118438,
+      "end": 121926
+    },
+    {
+      "ticker": "ALK",
+      "ticker_id": 41,
+      "start": 121926,
+      "end": 125117
+    },
+    {
+      "ticker": "ALL",
+      "ticker_id": 42,
+      "start": 125117,
+      "end": 128308
+    },
+    {
+      "ticker": "ALLY",
+      "ticker_id": 43,
+      "start": 128308,
+      "end": 131508
+    },
+    {
+      "ticker": "ALV",
+      "ticker_id": 44,
+      "start": 131508,
+      "end": 135166
+    },
+    {
+      "ticker": "AMAT",
+      "ticker_id": 45,
+      "start": 135166,
+      "end": 138357
+    },
+    {
+      "ticker": "AMCR",
+      "ticker_id": 46,
+      "start": 138357,
+      "end": 141845
+    },
+    {
+      "ticker": "AMD",
+      "ticker_id": 47,
+      "start": 141845,
+      "end": 145036
+    },
+    {
+      "ticker": "AMG",
+      "ticker_id": 48,
+      "start": 145036,
+      "end": 148296
+    },
+    {
+      "ticker": "AMGN",
+      "ticker_id": 49,
+      "start": 148296,
+      "end": 151784
+    },
+    {
+      "ticker": "AMH",
+      "ticker_id": 50,
+      "start": 151784,
+      "end": 155107
+    },
+    {
+      "ticker": "AMP",
+      "ticker_id": 51,
+      "start": 155107,
+      "end": 158298
+    },
+    {
+      "ticker": "AMT",
+      "ticker_id": 52,
+      "start": 158298,
+      "end": 161631
+    },
+    {
+      "ticker": "AMZN",
+      "ticker_id": 53,
+      "start": 161631,
+      "end": 164822
+    },
+    {
+      "ticker": "AON",
+      "ticker_id": 54,
+      "start": 164822,
+      "end": 167883
+    },
+    {
+      "ticker": "AOS",
+      "ticker_id": 55,
+      "start": 167883,
+      "end": 171371
+    },
+    {
+      "ticker": "AOSL",
+      "ticker_id": 56,
+      "start": 171371,
+      "end": 174859
+    },
+    {
+      "ticker": "APA",
+      "ticker_id": 57,
+      "start": 174859,
+      "end": 178347
+    },
+    {
+      "ticker": "APAM",
+      "ticker_id": 58,
+      "start": 178347,
+      "end": 181607
+    },
+    {
+      "ticker": "APD",
+      "ticker_id": 59,
+      "start": 181607,
+      "end": 185178
+    },
+    {
+      "ticker": "APO",
+      "ticker_id": 60,
+      "start": 185178,
+      "end": 188749
+    },
+    {
+      "ticker": "APTV",
+      "ticker_id": 61,
+      "start": 188749,
+      "end": 192407
+    },
+    {
+      "ticker": "ARCB",
+      "ticker_id": 62,
+      "start": 192407,
+      "end": 196065
+    },
+    {
+      "ticker": "ARCC",
+      "ticker_id": 63,
+      "start": 196065,
+      "end": 199325
+    },
+    {
+      "ticker": "ARE",
+      "ticker_id": 64,
+      "start": 199325,
+      "end": 202983
+    },
+    {
+      "ticker": "ARES",
+      "ticker_id": 65,
+      "start": 202983,
+      "end": 206117
+    },
+    {
+      "ticker": "ARR",
+      "ticker_id": 66,
+      "start": 206117,
+      "end": 209688
+    },
+    {
+      "ticker": "ASML.AS",
+      "ticker_id": 67,
+      "start": 209688,
+      "end": 212879
+    },
+    {
+      "ticker": "ASTE",
+      "ticker_id": 68,
+      "start": 212879,
+      "end": 216288
+    },
+    {
+      "ticker": "ATO",
+      "ticker_id": 69,
+      "start": 216288,
+      "end": 219349
+    },
+    {
+      "ticker": "ATR",
+      "ticker_id": 70,
+      "start": 219349,
+      "end": 222837
+    },
+    {
+      "ticker": "AVA",
+      "ticker_id": 71,
+      "start": 222837,
+      "end": 226325
+    },
+    {
+      "ticker": "AVGO",
+      "ticker_id": 73,
+      "start": 226325,
+      "end": 229516
+    },
+    {
+      "ticker": "AVY",
+      "ticker_id": 74,
+      "start": 229516,
+      "end": 233004
+    },
+    {
+      "ticker": "AWI",
+      "ticker_id": 75,
+      "start": 233004,
+      "end": 236492
+    },
+    {
+      "ticker": "AXON",
+      "ticker_id": 76,
+      "start": 236492,
+      "end": 239553
+    },
+    {
+      "ticker": "AXP",
+      "ticker_id": 77,
+      "start": 239553,
+      "end": 242744
+    },
+    {
+      "ticker": "AXS",
+      "ticker_id": 78,
+      "start": 242744,
+      "end": 246315
+    },
+    {
+      "ticker": "AXSM",
+      "ticker_id": 79,
+      "start": 246315,
+      "end": 249057
+    },
+    {
+      "ticker": "AXTA",
+      "ticker_id": 80,
+      "start": 249057,
+      "end": 252056
+    },
+    {
+      "ticker": "AZO",
+      "ticker_id": 81,
+      "start": 252056,
+      "end": 255117
+    },
+    {
+      "ticker": "BA",
+      "ticker_id": 82,
+      "start": 255117,
+      "end": 258308
+    },
+    {
+      "ticker": "BAC",
+      "ticker_id": 83,
+      "start": 258308,
+      "end": 261499
+    },
+    {
+      "ticker": "BALL",
+      "ticker_id": 84,
+      "start": 261499,
+      "end": 264987
+    },
+    {
+      "ticker": "BAM",
+      "ticker_id": 85,
+      "start": 264987,
+      "end": 265959
+    },
+    {
+      "ticker": "BAS.DE",
+      "ticker_id": 86,
+      "start": 265959,
+      "end": 269530
+    },
+    {
+      "ticker": "BATRA",
+      "ticker_id": 87,
+      "start": 269530,
+      "end": 272171
+    },
+    {
+      "ticker": "BATRK",
+      "ticker_id": 88,
+      "start": 272171,
+      "end": 274812
+    },
+    {
+      "ticker": "BAX",
+      "ticker_id": 89,
+      "start": 274812,
+      "end": 278300
+    },
+    {
+      "ticker": "BAYN.DE",
+      "ticker_id": 90,
+      "start": 278300,
+      "end": 281871
+    },
+    {
+      "ticker": "BBY",
+      "ticker_id": 91,
+      "start": 281871,
+      "end": 284932
+    },
+    {
+      "ticker": "BCPC",
+      "ticker_id": 92,
+      "start": 284932,
+      "end": 288341
+    },
+    {
+      "ticker": "BCSF",
+      "ticker_id": 93,
+      "start": 288341,
+      "end": 290330
+    },
+    {
+      "ticker": "BDX",
+      "ticker_id": 94,
+      "start": 290330,
+      "end": 293818
+    },
+    {
+      "ticker": "BELFA",
+      "ticker_id": 95,
+      "start": 293818,
+      "end": 297476
+    },
+    {
+      "ticker": "BEN",
+      "ticker_id": 96,
+      "start": 297476,
+      "end": 300667
+    },
+    {
+      "ticker": "BEP",
+      "ticker_id": 97,
+      "start": 300667,
+      "end": 304238
+    },
+    {
+      "ticker": "BF-B",
+      "ticker_id": 98,
+      "start": 304238,
+      "end": 307299
+    },
+    {
+      "ticker": "BHE",
+      "ticker_id": 99,
+      "start": 307299,
+      "end": 310787
+    },
+    {
+      "ticker": "BHF",
+      "ticker_id": 100,
+      "start": 310787,
+      "end": 313114
+    },
+    {
+      "ticker": "BHP",
+      "ticker_id": 101,
+      "start": 313114,
+      "end": 316523
+    },
+    {
+      "ticker": "BIIB",
+      "ticker_id": 102,
+      "start": 316523,
+      "end": 320011
+    },
+    {
+      "ticker": "BIP",
+      "ticker_id": 103,
+      "start": 320011,
+      "end": 323582
+    },
+    {
+      "ticker": "BKH",
+      "ticker_id": 104,
+      "start": 323582,
+      "end": 327070
+    },
+    {
+      "ticker": "BKNG",
+      "ticker_id": 105,
+      "start": 327070,
+      "end": 330261
+    },
+    {
+      "ticker": "BKR",
+      "ticker_id": 106,
+      "start": 330261,
+      "end": 333749
+    },
+    {
+      "ticker": "BLK",
+      "ticker_id": 107,
+      "start": 333749,
+      "end": 336940
+    },
+    {
+      "ticker": "BMY",
+      "ticker_id": 108,
+      "start": 336940,
+      "end": 340131
+    },
+    {
+      "ticker": "BN",
+      "ticker_id": 109,
+      "start": 340131,
+      "end": 343702
+    },
+    {
+      "ticker": "BOKF",
+      "ticker_id": 110,
+      "start": 343702,
+      "end": 347360
+    },
+    {
+      "ticker": "BRKL",
+      "ticker_id": 111,
+      "start": 347360,
+      "end": 347433
+    },
+    {
+      "ticker": "BRO",
+      "ticker_id": 112,
+      "start": 347433,
+      "end": 350624
+    },
+    {
+      "ticker": "BSX",
+      "ticker_id": 113,
+      "start": 350624,
+      "end": 353685
+    },
+    {
+      "ticker": "BW",
+      "ticker_id": 114,
+      "start": 353685,
+      "end": 356537
+    },
+    {
+      "ticker": "BWA",
+      "ticker_id": 115,
+      "start": 356537,
+      "end": 360195
+    },
+    {
+      "ticker": "BX",
+      "ticker_id": 116,
+      "start": 360195,
+      "end": 363386
+    },
+    {
+      "ticker": "BXMT",
+      "ticker_id": 117,
+      "start": 363386,
+      "end": 366957
+    },
+    {
+      "ticker": "BXP",
+      "ticker_id": 118,
+      "start": 366957,
+      "end": 370615
+    },
+    {
+      "ticker": "BZH",
+      "ticker_id": 119,
+      "start": 370615,
+      "end": 374103
+    },
+    {
+      "ticker": "C",
+      "ticker_id": 120,
+      "start": 374103,
+      "end": 377294
+    },
+    {
+      "ticker": "CACC",
+      "ticker_id": 121,
+      "start": 377294,
+      "end": 380952
+    },
+    {
+      "ticker": "CACI",
+      "ticker_id": 122,
+      "start": 380952,
+      "end": 384143
+    },
+    {
+      "ticker": "CAG",
+      "ticker_id": 123,
+      "start": 384143,
+      "end": 387204
+    },
+    {
+      "ticker": "CALX",
+      "ticker_id": 124,
+      "start": 387204,
+      "end": 390775
+    },
+    {
+      "ticker": "CAMT",
+      "ticker_id": 125,
+      "start": 390775,
+      "end": 394263
+    },
+    {
+      "ticker": "CARR",
+      "ticker_id": 126,
+      "start": 394263,
+      "end": 395917
+    },
+    {
+      "ticker": "CASY",
+      "ticker_id": 127,
+      "start": 395917,
+      "end": 399177
+    },
+    {
+      "ticker": "CAT",
+      "ticker_id": 128,
+      "start": 399177,
+      "end": 402368
+    },
+    {
+      "ticker": "CB",
+      "ticker_id": 129,
+      "start": 402368,
+      "end": 405559
+    },
+    {
+      "ticker": "CCI",
+      "ticker_id": 130,
+      "start": 405559,
+      "end": 408892
+    },
+    {
+      "ticker": "CCK",
+      "ticker_id": 131,
+      "start": 408892,
+      "end": 412380
+    },
+    {
+      "ticker": "CCL",
+      "ticker_id": 132,
+      "start": 412380,
+      "end": 415441
+    },
+    {
+      "ticker": "CCS",
+      "ticker_id": 133,
+      "start": 415441,
+      "end": 418543
+    },
+    {
+      "ticker": "CDNS",
+      "ticker_id": 134,
+      "start": 418543,
+      "end": 421604
+    },
+    {
+      "ticker": "CEVA",
+      "ticker_id": 135,
+      "start": 421604,
+      "end": 425092
+    },
+    {
+      "ticker": "CF",
+      "ticker_id": 136,
+      "start": 425092,
+      "end": 428501
+    },
+    {
+      "ticker": "CFG",
+      "ticker_id": 137,
+      "start": 428501,
+      "end": 431535
+    },
+    {
+      "ticker": "CG",
+      "ticker_id": 138,
+      "start": 431535,
+      "end": 434795
+    },
+    {
+      "ticker": "CHDN",
+      "ticker_id": 139,
+      "start": 434795,
+      "end": 438283
+    },
+    {
+      "ticker": "CHEF",
+      "ticker_id": 140,
+      "start": 438283,
+      "end": 441941
+    },
+    {
+      "ticker": "CHRW",
+      "ticker_id": 141,
+      "start": 441941,
+      "end": 445132
+    },
+    {
+      "ticker": "CIA",
+      "ticker_id": 142,
+      "start": 445132,
+      "end": 448790
+    },
+    {
+      "ticker": "CIEN",
+      "ticker_id": 143,
+      "start": 448790,
+      "end": 452361
+    },
+    {
+      "ticker": "CIM",
+      "ticker_id": 144,
+      "start": 452361,
+      "end": 455932
+    },
+    {
+      "ticker": "CINF",
+      "ticker_id": 145,
+      "start": 455932,
+      "end": 459123
+    },
+    {
+      "ticker": "CIR",
+      "ticker_id": 146,
+      "start": 459123,
+      "end": 459196
+    },
+    {
+      "ticker": "CL",
+      "ticker_id": 147,
+      "start": 459196,
+      "end": 462257
+    },
+    {
+      "ticker": "CLF",
+      "ticker_id": 148,
+      "start": 462257,
+      "end": 465666
+    },
+    {
+      "ticker": "CLS",
+      "ticker_id": 149,
+      "start": 465666,
+      "end": 469154
+    },
+    {
+      "ticker": "CME",
+      "ticker_id": 150,
+      "start": 469154,
+      "end": 472215
+    },
+    {
+      "ticker": "CMG",
+      "ticker_id": 151,
+      "start": 472215,
+      "end": 475276
+    },
+    {
+      "ticker": "CMP",
+      "ticker_id": 152,
+      "start": 475276,
+      "end": 478685
+    },
+    {
+      "ticker": "CMS",
+      "ticker_id": 153,
+      "start": 478685,
+      "end": 481746
+    },
+    {
+      "ticker": "CNH",
+      "ticker_id": 154,
+      "start": 481746,
+      "end": 485028
+    },
+    {
+      "ticker": "CNI",
+      "ticker_id": 155,
+      "start": 485028,
+      "end": 488089
+    },
+    {
+      "ticker": "CNK",
+      "ticker_id": 156,
+      "start": 488089,
+      "end": 491498
+    },
+    {
+      "ticker": "CNO",
+      "ticker_id": 157,
+      "start": 491498,
+      "end": 495069
+    },
+    {
+      "ticker": "CNP",
+      "ticker_id": 158,
+      "start": 495069,
+      "end": 498130
+    },
+    {
+      "ticker": "COF",
+      "ticker_id": 159,
+      "start": 498130,
+      "end": 501191
+    },
+    {
+      "ticker": "COHR",
+      "ticker_id": 160,
+      "start": 501191,
+      "end": 504762
+    },
+    {
+      "ticker": "COLB",
+      "ticker_id": 161,
+      "start": 504762,
+      "end": 508420
+    },
+    {
+      "ticker": "COO",
+      "ticker_id": 162,
+      "start": 508420,
+      "end": 511908
+    },
+    {
+      "ticker": "COP",
+      "ticker_id": 163,
+      "start": 511908,
+      "end": 515099
+    },
+    {
+      "ticker": "COST",
+      "ticker_id": 164,
+      "start": 515099,
+      "end": 518290
+    },
+    {
+      "ticker": "CP",
+      "ticker_id": 165,
+      "start": 518290,
+      "end": 521351
+    },
+    {
+      "ticker": "CPB",
+      "ticker_id": 166,
+      "start": 521351,
+      "end": 524412
+    },
+    {
+      "ticker": "CPK",
+      "ticker_id": 167,
+      "start": 524412,
+      "end": 527900
+    },
+    {
+      "ticker": "CPRT",
+      "ticker_id": 168,
+      "start": 527900,
+      "end": 530961
+    },
+    {
+      "ticker": "CPSS",
+      "ticker_id": 169,
+      "start": 530961,
+      "end": 534619
+    },
+    {
+      "ticker": "CPT",
+      "ticker_id": 170,
+      "start": 534619,
+      "end": 537952
+    },
+    {
+      "ticker": "CR",
+      "ticker_id": 171,
+      "start": 537952,
+      "end": 538844
+    },
+    {
+      "ticker": "CRL",
+      "ticker_id": 172,
+      "start": 538844,
+      "end": 542035
+    },
+    {
+      "ticker": "CRUS",
+      "ticker_id": 173,
+      "start": 542035,
+      "end": 545523
+    },
+    {
+      "ticker": "CRWD",
+      "ticker_id": 174,
+      "start": 545523,
+      "end": 547371
+    },
+    {
+      "ticker": "CSCO",
+      "ticker_id": 175,
+      "start": 547371,
+      "end": 550562
+    },
+    {
+      "ticker": "CSWC",
+      "ticker_id": 176,
+      "start": 550562,
+      "end": 553822
+    },
+    {
+      "ticker": "CTAS",
+      "ticker_id": 177,
+      "start": 553822,
+      "end": 556883
+    },
+    {
+      "ticker": "CTS",
+      "ticker_id": 178,
+      "start": 556883,
+      "end": 560541
+    },
+    {
+      "ticker": "CTSH",
+      "ticker_id": 179,
+      "start": 560541,
+      "end": 563732
+    },
+    {
+      "ticker": "CTVA",
+      "ticker_id": 180,
+      "start": 563732,
+      "end": 565592
+    },
+    {
+      "ticker": "CUBE",
+      "ticker_id": 181,
+      "start": 565592,
+      "end": 568925
+    },
+    {
+      "ticker": "CUBI",
+      "ticker_id": 182,
+      "start": 568925,
+      "end": 572334
+    },
+    {
+      "ticker": "CUZ",
+      "ticker_id": 183,
+      "start": 572334,
+      "end": 575992
+    },
+    {
+      "ticker": "CVI",
+      "ticker_id": 184,
+      "start": 575992,
+      "end": 579325
+    },
+    {
+      "ticker": "CVX",
+      "ticker_id": 185,
+      "start": 579325,
+      "end": 582516
+    },
+    {
+      "ticker": "CWEN",
+      "ticker_id": 186,
+      "start": 582516,
+      "end": 585389
+    },
+    {
+      "ticker": "CZR",
+      "ticker_id": 187,
+      "start": 585389,
+      "end": 588425
+    },
+    {
+      "ticker": "D",
+      "ticker_id": 188,
+      "start": 588425,
+      "end": 591486
+    },
+    {
+      "ticker": "DAL",
+      "ticker_id": 189,
+      "start": 591486,
+      "end": 594677
+    },
+    {
+      "ticker": "DAN",
+      "ticker_id": 190,
+      "start": 594677,
+      "end": 598335
+    },
+    {
+      "ticker": "DE",
+      "ticker_id": 191,
+      "start": 598335,
+      "end": 601396
+    },
+    {
+      "ticker": "DEI",
+      "ticker_id": 192,
+      "start": 601396,
+      "end": 605054
+    },
+    {
+      "ticker": "DELL",
+      "ticker_id": 193,
+      "start": 605054,
+      "end": 607610
+    },
+    {
+      "ticker": "DFH",
+      "ticker_id": 194,
+      "start": 607610,
+      "end": 609052
+    },
+    {
+      "ticker": "DG",
+      "ticker_id": 195,
+      "start": 609052,
+      "end": 612113
+    },
+    {
+      "ticker": "DGX",
+      "ticker_id": 196,
+      "start": 612113,
+      "end": 615304
+    },
+    {
+      "ticker": "DHI",
+      "ticker_id": 197,
+      "start": 615304,
+      "end": 618792
+    },
+    {
+      "ticker": "DHR",
+      "ticker_id": 198,
+      "start": 618792,
+      "end": 622280
+    },
+    {
+      "ticker": "DIOD",
+      "ticker_id": 199,
+      "start": 622280,
+      "end": 625768
+    },
+    {
+      "ticker": "DIS",
+      "ticker_id": 200,
+      "start": 625768,
+      "end": 628959
+    },
+    {
+      "ticker": "DK",
+      "ticker_id": 201,
+      "start": 628959,
+      "end": 632292
+    },
+    {
+      "ticker": "DKNG",
+      "ticker_id": 202,
+      "start": 632292,
+      "end": 634110
+    },
+    {
+      "ticker": "DLR",
+      "ticker_id": 203,
+      "start": 634110,
+      "end": 637443
+    },
+    {
+      "ticker": "DLTR",
+      "ticker_id": 204,
+      "start": 637443,
+      "end": 640504
+    },
+    {
+      "ticker": "DNOW",
+      "ticker_id": 205,
+      "start": 640504,
+      "end": 643626
+    },
+    {
+      "ticker": "DOC",
+      "ticker_id": 206,
+      "start": 643626,
+      "end": 647284
+    },
+    {
+      "ticker": "DORM",
+      "ticker_id": 207,
+      "start": 647284,
+      "end": 650942
+    },
+    {
+      "ticker": "DPZ",
+      "ticker_id": 208,
+      "start": 650942,
+      "end": 654003
+    },
+    {
+      "ticker": "DRI",
+      "ticker_id": 209,
+      "start": 654003,
+      "end": 657064
+    },
+    {
+      "ticker": "DTE",
+      "ticker_id": 210,
+      "start": 657064,
+      "end": 660125
+    },
+    {
+      "ticker": "DUK",
+      "ticker_id": 211,
+      "start": 660125,
+      "end": 663186
+    },
+    {
+      "ticker": "DVN",
+      "ticker_id": 212,
+      "start": 663186,
+      "end": 666674
+    },
+    {
+      "ticker": "DX",
+      "ticker_id": 213,
+      "start": 666674,
+      "end": 670245
+    },
+    {
+      "ticker": "DXCM",
+      "ticker_id": 214,
+      "start": 670245,
+      "end": 673733
+    },
+    {
+      "ticker": "DY",
+      "ticker_id": 215,
+      "start": 673733,
+      "end": 677304
+    },
+    {
+      "ticker": "EBAY",
+      "ticker_id": 216,
+      "start": 677304,
+      "end": 680365
+    },
+    {
+      "ticker": "ECL",
+      "ticker_id": 217,
+      "start": 680365,
+      "end": 683426
+    },
+    {
+      "ticker": "ECPG",
+      "ticker_id": 218,
+      "start": 683426,
+      "end": 687084
+    },
+    {
+      "ticker": "ED",
+      "ticker_id": 219,
+      "start": 687084,
+      "end": 690145
+    },
+    {
+      "ticker": "EFC",
+      "ticker_id": 220,
+      "start": 690145,
+      "end": 693716
+    },
+    {
+      "ticker": "EFX",
+      "ticker_id": 221,
+      "start": 693716,
+      "end": 696907
+    },
+    {
+      "ticker": "EG",
+      "ticker_id": 222,
+      "start": 696907,
+      "end": 700098
+    },
+    {
+      "ticker": "ELS",
+      "ticker_id": 223,
+      "start": 700098,
+      "end": 703669
+    },
+    {
+      "ticker": "EME",
+      "ticker_id": 224,
+      "start": 703669,
+      "end": 707240
+    },
+    {
+      "ticker": "EMR",
+      "ticker_id": 225,
+      "start": 707240,
+      "end": 710301
+    },
+    {
+      "ticker": "ENTG",
+      "ticker_id": 226,
+      "start": 710301,
+      "end": 713789
+    },
+    {
+      "ticker": "EOG",
+      "ticker_id": 227,
+      "start": 713789,
+      "end": 717277
+    },
+    {
+      "ticker": "EQIX",
+      "ticker_id": 228,
+      "start": 717277,
+      "end": 720610
+    },
+    {
+      "ticker": "EQNR.OL",
+      "ticker_id": 229,
+      "start": 720610,
+      "end": 723801
+    },
+    {
+      "ticker": "EQT",
+      "ticker_id": 231,
+      "start": 723801,
+      "end": 727289
+    },
+    {
+      "ticker": "ESS",
+      "ticker_id": 232,
+      "start": 727289,
+      "end": 730622
+    },
+    {
+      "ticker": "ETN",
+      "ticker_id": 233,
+      "start": 730622,
+      "end": 733813
+    },
+    {
+      "ticker": "ETR",
+      "ticker_id": 234,
+      "start": 733813,
+      "end": 736874
+    },
+    {
+      "ticker": "ETSY",
+      "ticker_id": 235,
+      "start": 736874,
+      "end": 739768
+    },
+    {
+      "ticker": "EVRG",
+      "ticker_id": 236,
+      "start": 739768,
+      "end": 742829
+    },
+    {
+      "ticker": "EW",
+      "ticker_id": 237,
+      "start": 742829,
+      "end": 746317
+    },
+    {
+      "ticker": "EWBC",
+      "ticker_id": 238,
+      "start": 746317,
+      "end": 749975
+    },
+    {
+      "ticker": "EXC",
+      "ticker_id": 239,
+      "start": 749975,
+      "end": 753036
+    },
+    {
+      "ticker": "EXPD",
+      "ticker_id": 240,
+      "start": 753036,
+      "end": 756227
+    },
+    {
+      "ticker": "EXR",
+      "ticker_id": 241,
+      "start": 756227,
+      "end": 759560
+    },
+    {
+      "ticker": "EXTR",
+      "ticker_id": 242,
+      "start": 759560,
+      "end": 763131
+    },
+    {
+      "ticker": "EZPW",
+      "ticker_id": 243,
+      "start": 763131,
+      "end": 766789
+    },
+    {
+      "ticker": "FAF",
+      "ticker_id": 244,
+      "start": 766789,
+      "end": 770360
+    },
+    {
+      "ticker": "FANG",
+      "ticker_id": 245,
+      "start": 770360,
+      "end": 773848
+    },
+    {
+      "ticker": "FAST",
+      "ticker_id": 246,
+      "start": 773848,
+      "end": 776909
+    },
+    {
+      "ticker": "FCFS",
+      "ticker_id": 247,
+      "start": 776909,
+      "end": 780567
+    },
+    {
+      "ticker": "FCX",
+      "ticker_id": 248,
+      "start": 780567,
+      "end": 783976
+    },
+    {
+      "ticker": "FDUS",
+      "ticker_id": 249,
+      "start": 783976,
+      "end": 787236
+    },
+    {
+      "ticker": "FE",
+      "ticker_id": 250,
+      "start": 787236,
+      "end": 790297
+    },
+    {
+      "ticker": "FG",
+      "ticker_id": 251,
+      "start": 790297,
+      "end": 791275
+    },
+    {
+      "ticker": "FHI",
+      "ticker_id": 252,
+      "start": 791275,
+      "end": 794535
+    },
+    {
+      "ticker": "FHN",
+      "ticker_id": 253,
+      "start": 794535,
+      "end": 798193
+    },
+    {
+      "ticker": "FITB",
+      "ticker_id": 254,
+      "start": 798193,
+      "end": 801851
+    },
+    {
+      "ticker": "FIX",
+      "ticker_id": 255,
+      "start": 801851,
+      "end": 805422
+    },
+    {
+      "ticker": "FLEX",
+      "ticker_id": 256,
+      "start": 805422,
+      "end": 808910
+    },
+    {
+      "ticker": "FLOW",
+      "ticker_id": 257,
+      "start": 808910,
+      "end": 809730
+    },
+    {
+      "ticker": "FLR",
+      "ticker_id": 258,
+      "start": 809730,
+      "end": 813301
+    },
+    {
+      "ticker": "FMC",
+      "ticker_id": 259,
+      "start": 813301,
+      "end": 816710
+    },
+    {
+      "ticker": "FN",
+      "ticker_id": 260,
+      "start": 816710,
+      "end": 820281
+    },
+    {
+      "ticker": "FNF",
+      "ticker_id": 261,
+      "start": 820281,
+      "end": 823852
+    },
+    {
+      "ticker": "FORM",
+      "ticker_id": 262,
+      "start": 823852,
+      "end": 827340
+    },
+    {
+      "ticker": "FORR",
+      "ticker_id": 263,
+      "start": 827340,
+      "end": 830911
+    },
+    {
+      "ticker": "FRT",
+      "ticker_id": 264,
+      "start": 830911,
+      "end": 834244
+    },
+    {
+      "ticker": "FSK",
+      "ticker_id": 265,
+      "start": 834244,
+      "end": 837389
+    },
+    {
+      "ticker": "FSLY",
+      "ticker_id": 266,
+      "start": 837389,
+      "end": 839254
+    },
+    {
+      "ticker": "FTNT",
+      "ticker_id": 267,
+      "start": 839254,
+      "end": 842315
+    },
+    {
+      "ticker": "FULT",
+      "ticker_id": 268,
+      "start": 842315,
+      "end": 845973
+    },
+    {
+      "ticker": "FWONA",
+      "ticker_id": 269,
+      "start": 845973,
+      "end": 849382
+    },
+    {
+      "ticker": "FWONK",
+      "ticker_id": 270,
+      "start": 849382,
+      "end": 852471
+    },
+    {
+      "ticker": "GBDC",
+      "ticker_id": 271,
+      "start": 852471,
+      "end": 855731
+    },
+    {
+      "ticker": "GD",
+      "ticker_id": 272,
+      "start": 855731,
+      "end": 858792
+    },
+    {
+      "ticker": "GE",
+      "ticker_id": 273,
+      "start": 858792,
+      "end": 861983
+    },
+    {
+      "ticker": "GEHC",
+      "ticker_id": 274,
+      "start": 861983,
+      "end": 862945
+    },
+    {
+      "ticker": "GILD",
+      "ticker_id": 275,
+      "start": 862945,
+      "end": 866136
+    },
+    {
+      "ticker": "GIS",
+      "ticker_id": 276,
+      "start": 866136,
+      "end": 869197
+    },
+    {
+      "ticker": "GL",
+      "ticker_id": 277,
+      "start": 869197,
+      "end": 872768
+    },
+    {
+      "ticker": "GLPI",
+      "ticker_id": 278,
+      "start": 872768,
+      "end": 876040
+    },
+    {
+      "ticker": "GLW",
+      "ticker_id": 279,
+      "start": 876040,
+      "end": 879231
+    },
+    {
+      "ticker": "GNTX",
+      "ticker_id": 280,
+      "start": 879231,
+      "end": 882889
+    },
+    {
+      "ticker": "GNW",
+      "ticker_id": 281,
+      "start": 882889,
+      "end": 886547
+    },
+    {
+      "ticker": "GO",
+      "ticker_id": 282,
+      "start": 886547,
+      "end": 888389
+    },
+    {
+      "ticker": "GOOGL",
+      "ticker_id": 283,
+      "start": 888389,
+      "end": 891580
+    },
+    {
+      "ticker": "GPK",
+      "ticker_id": 284,
+      "start": 891580,
+      "end": 895068
+    },
+    {
+      "ticker": "GRBK",
+      "ticker_id": 285,
+      "start": 895068,
+      "end": 898556
+    },
+    {
+      "ticker": "GRWG",
+      "ticker_id": 286,
+      "start": 898556,
+      "end": 900741
+    },
+    {
+      "ticker": "GS",
+      "ticker_id": 287,
+      "start": 900741,
+      "end": 903932
+    },
+    {
+      "ticker": "GSBD",
+      "ticker_id": 288,
+      "start": 903932,
+      "end": 906846
+    },
+    {
+      "ticker": "GXO",
+      "ticker_id": 289,
+      "start": 906846,
+      "end": 908162
+    },
+    {
+      "ticker": "HAL",
+      "ticker_id": 290,
+      "start": 908162,
+      "end": 911650
+    },
+    {
+      "ticker": "HASI",
+      "ticker_id": 291,
+      "start": 911650,
+      "end": 915046
+    },
+    {
+      "ticker": "HBAN",
+      "ticker_id": 292,
+      "start": 915046,
+      "end": 918704
+    },
+    {
+      "ticker": "HCA",
+      "ticker_id": 293,
+      "start": 918704,
+      "end": 921765
+    },
+    {
+      "ticker": "HD",
+      "ticker_id": 294,
+      "start": 921765,
+      "end": 924956
+    },
+    {
+      "ticker": "HE",
+      "ticker_id": 295,
+      "start": 924956,
+      "end": 928289
+    },
+    {
+      "ticker": "HEI",
+      "ticker_id": 296,
+      "start": 928289,
+      "end": 931480
+    },
+    {
+      "ticker": "HIG",
+      "ticker_id": 297,
+      "start": 931480,
+      "end": 934671
+    },
+    {
+      "ticker": "HIW",
+      "ticker_id": 298,
+      "start": 934671,
+      "end": 938329
+    },
+    {
+      "ticker": "HLIT",
+      "ticker_id": 299,
+      "start": 938329,
+      "end": 941900
+    },
+    {
+      "ticker": "HLNE",
+      "ticker_id": 300,
+      "start": 941900,
+      "end": 944322
+    },
+    {
+      "ticker": "HLT",
+      "ticker_id": 301,
+      "start": 944322,
+      "end": 947383
+    },
+    {
+      "ticker": "HOG",
+      "ticker_id": 302,
+      "start": 947383,
+      "end": 950792
+    },
+    {
+      "ticker": "HON",
+      "ticker_id": 303,
+      "start": 950792,
+      "end": 953983
+    },
+    {
+      "ticker": "HOV",
+      "ticker_id": 304,
+      "start": 953983,
+      "end": 957471
+    },
+    {
+      "ticker": "HPE",
+      "ticker_id": 305,
+      "start": 957471,
+      "end": 960236
+    },
+    {
+      "ticker": "HPQ",
+      "ticker_id": 306,
+      "start": 960236,
+      "end": 963427
+    },
+    {
+      "ticker": "HRL",
+      "ticker_id": 307,
+      "start": 963427,
+      "end": 966488
+    },
+    {
+      "ticker": "HRZN",
+      "ticker_id": 308,
+      "start": 966488,
+      "end": 969748
+    },
+    {
+      "ticker": "HSY",
+      "ticker_id": 309,
+      "start": 969748,
+      "end": 972809
+    },
+    {
+      "ticker": "HTGC",
+      "ticker_id": 310,
+      "start": 972809,
+      "end": 976069
+    },
+    {
+      "ticker": "HTLD",
+      "ticker_id": 311,
+      "start": 976069,
+      "end": 979727
+    },
+    {
+      "ticker": "HUBB",
+      "ticker_id": 312,
+      "start": 979727,
+      "end": 983385
+    },
+    {
+      "ticker": "HUBG",
+      "ticker_id": 313,
+      "start": 983385,
+      "end": 987043
+    },
+    {
+      "ticker": "HUM",
+      "ticker_id": 314,
+      "start": 987043,
+      "end": 990104
+    },
+    {
+      "ticker": "HWC",
+      "ticker_id": 315,
+      "start": 990104,
+      "end": 993513
+    },
+    {
+      "ticker": "HWM",
+      "ticker_id": 316,
+      "start": 993513,
+      "end": 996016
+    },
+    {
+      "ticker": "IBM",
+      "ticker_id": 317,
+      "start": 996016,
+      "end": 999207
+    },
+    {
+      "ticker": "ICE",
+      "ticker_id": 318,
+      "start": 999207,
+      "end": 1002268
+    },
+    {
+      "ticker": "ICL",
+      "ticker_id": 319,
+      "start": 1002268,
+      "end": 1005839
+    },
+    {
+      "ticker": "IDA",
+      "ticker_id": 320,
+      "start": 1005839,
+      "end": 1009172
+    },
+    {
+      "ticker": "IDXX",
+      "ticker_id": 321,
+      "start": 1009172,
+      "end": 1012660
+    },
+    {
+      "ticker": "IEP",
+      "ticker_id": 322,
+      "start": 1012660,
+      "end": 1016069
+    },
+    {
+      "ticker": "ILMN",
+      "ticker_id": 323,
+      "start": 1016069,
+      "end": 1019557
+    },
+    {
+      "ticker": "IMAX",
+      "ticker_id": 324,
+      "start": 1019557,
+      "end": 1022966
+    },
+    {
+      "ticker": "IMKTA",
+      "ticker_id": 325,
+      "start": 1022966,
+      "end": 1026226
+    },
+    {
+      "ticker": "INCY",
+      "ticker_id": 326,
+      "start": 1026226,
+      "end": 1029714
+    },
+    {
+      "ticker": "INSP",
+      "ticker_id": 327,
+      "start": 1029714,
+      "end": 1031840
+    },
+    {
+      "ticker": "INTC",
+      "ticker_id": 328,
+      "start": 1031840,
+      "end": 1035031
+    },
+    {
+      "ticker": "INVH",
+      "ticker_id": 329,
+      "start": 1035031,
+      "end": 1037472
+    },
+    {
+      "ticker": "IP",
+      "ticker_id": 330,
+      "start": 1037472,
+      "end": 1040960
+    },
+    {
+      "ticker": "IQV",
+      "ticker_id": 331,
+      "start": 1040960,
+      "end": 1044341
+    },
+    {
+      "ticker": "IRM",
+      "ticker_id": 332,
+      "start": 1044341,
+      "end": 1047674
+    },
+    {
+      "ticker": "ISRG",
+      "ticker_id": 333,
+      "start": 1047674,
+      "end": 1050865
+    },
+    {
+      "ticker": "IT",
+      "ticker_id": 334,
+      "start": 1050865,
+      "end": 1054436
+    },
+    {
+      "ticker": "ITT",
+      "ticker_id": 335,
+      "start": 1054436,
+      "end": 1058094
+    },
+    {
+      "ticker": "ITW",
+      "ticker_id": 336,
+      "start": 1058094,
+      "end": 1061155
+    },
+    {
+      "ticker": "IVR",
+      "ticker_id": 337,
+      "start": 1061155,
+      "end": 1064726
+    },
+    {
+      "ticker": "IVZ",
+      "ticker_id": 338,
+      "start": 1064726,
+      "end": 1067986
+    },
+    {
+      "ticker": "J",
+      "ticker_id": 339,
+      "start": 1067986,
+      "end": 1071557
+    },
+    {
+      "ticker": "JBHT",
+      "ticker_id": 340,
+      "start": 1071557,
+      "end": 1074748
+    },
+    {
+      "ticker": "JBL",
+      "ticker_id": 341,
+      "start": 1074748,
+      "end": 1078236
+    },
+    {
+      "ticker": "JBLU",
+      "ticker_id": 342,
+      "start": 1078236,
+      "end": 1081427
+    },
+    {
+      "ticker": "JCI",
+      "ticker_id": 343,
+      "start": 1081427,
+      "end": 1084915
+    },
+    {
+      "ticker": "JNJ",
+      "ticker_id": 344,
+      "start": 1084915,
+      "end": 1088106
+    },
+    {
+      "ticker": "JPM",
+      "ticker_id": 345,
+      "start": 1088106,
+      "end": 1091297
+    },
+    {
+      "ticker": "KBH",
+      "ticker_id": 346,
+      "start": 1091297,
+      "end": 1094785
+    },
+    {
+      "ticker": "KBR",
+      "ticker_id": 347,
+      "start": 1094785,
+      "end": 1098356
+    },
+    {
+      "ticker": "KEY",
+      "ticker_id": 348,
+      "start": 1098356,
+      "end": 1102014
+    },
+    {
+      "ticker": "KHC",
+      "ticker_id": 349,
+      "start": 1102014,
+      "end": 1104853
+    },
+    {
+      "ticker": "KIM",
+      "ticker_id": 350,
+      "start": 1104853,
+      "end": 1108186
+    },
+    {
+      "ticker": "KKR",
+      "ticker_id": 351,
+      "start": 1108186,
+      "end": 1111757
+    },
+    {
+      "ticker": "KLAC",
+      "ticker_id": 352,
+      "start": 1111757,
+      "end": 1115245
+    },
+    {
+      "ticker": "KMB",
+      "ticker_id": 353,
+      "start": 1115245,
+      "end": 1118306
+    },
+    {
+      "ticker": "KMI",
+      "ticker_id": 354,
+      "start": 1118306,
+      "end": 1121794
+    },
+    {
+      "ticker": "KNX",
+      "ticker_id": 355,
+      "start": 1121794,
+      "end": 1125452
+    },
+    {
+      "ticker": "KO",
+      "ticker_id": 356,
+      "start": 1125452,
+      "end": 1128643
+    },
+    {
+      "ticker": "KR",
+      "ticker_id": 357,
+      "start": 1128643,
+      "end": 1131903
+    },
+    {
+      "ticker": "KRC",
+      "ticker_id": 358,
+      "start": 1131903,
+      "end": 1135561
+    },
+    {
+      "ticker": "KREF",
+      "ticker_id": 359,
+      "start": 1135561,
+      "end": 1137937
+    },
+    {
+      "ticker": "LDOS",
+      "ticker_id": 361,
+      "start": 1137937,
+      "end": 1141128
+    },
+    {
+      "ticker": "LEA",
+      "ticker_id": 362,
+      "start": 1141128,
+      "end": 1144786
+    },
+    {
+      "ticker": "LEN",
+      "ticker_id": 363,
+      "start": 1144786,
+      "end": 1148274
+    },
+    {
+      "ticker": "LGIH",
+      "ticker_id": 364,
+      "start": 1148274,
+      "end": 1151528
+    },
+    {
+      "ticker": "LH",
+      "ticker_id": 365,
+      "start": 1151528,
+      "end": 1155016
+    },
+    {
+      "ticker": "LHX",
+      "ticker_id": 366,
+      "start": 1155016,
+      "end": 1158207
+    },
+    {
+      "ticker": "LII",
+      "ticker_id": 367,
+      "start": 1158207,
+      "end": 1161695
+    },
+    {
+      "ticker": "LIN",
+      "ticker_id": 368,
+      "start": 1161695,
+      "end": 1165266
+    },
+    {
+      "ticker": "LITE",
+      "ticker_id": 369,
+      "start": 1165266,
+      "end": 1168092
+    },
+    {
+      "ticker": "LLY",
+      "ticker_id": 370,
+      "start": 1168092,
+      "end": 1171283
+    },
+    {
+      "ticker": "LMT",
+      "ticker_id": 371,
+      "start": 1171283,
+      "end": 1174474
+    },
+    {
+      "ticker": "LNC",
+      "ticker_id": 372,
+      "start": 1174474,
+      "end": 1177665
+    },
+    {
+      "ticker": "LNG",
+      "ticker_id": 373,
+      "start": 1177665,
+      "end": 1180998
+    },
+    {
+      "ticker": "LNT",
+      "ticker_id": 374,
+      "start": 1180998,
+      "end": 1184059
+    },
+    {
+      "ticker": "LOW",
+      "ticker_id": 375,
+      "start": 1184059,
+      "end": 1187250
+    },
+    {
+      "ticker": "LRCX",
+      "ticker_id": 376,
+      "start": 1187250,
+      "end": 1190441
+    },
+    {
+      "ticker": "LSCC",
+      "ticker_id": 377,
+      "start": 1190441,
+      "end": 1193929
+    },
+    {
+      "ticker": "LTC",
+      "ticker_id": 378,
+      "start": 1193929,
+      "end": 1197587
+    },
+    {
+      "ticker": "LUV",
+      "ticker_id": 379,
+      "start": 1197587,
+      "end": 1200778
+    },
+    {
+      "ticker": "LVS",
+      "ticker_id": 380,
+      "start": 1200778,
+      "end": 1204266
+    },
+    {
+      "ticker": "LYV",
+      "ticker_id": 381,
+      "start": 1204266,
+      "end": 1207675
+    },
+    {
+      "ticker": "MA",
+      "ticker_id": 382,
+      "start": 1207675,
+      "end": 1210866
+    },
+    {
+      "ticker": "MAA",
+      "ticker_id": 383,
+      "start": 1210866,
+      "end": 1214199
+    },
+    {
+      "ticker": "MAIN",
+      "ticker_id": 384,
+      "start": 1214199,
+      "end": 1217459
+    },
+    {
+      "ticker": "MAR",
+      "ticker_id": 385,
+      "start": 1217459,
+      "end": 1220520
+    },
+    {
+      "ticker": "MAS",
+      "ticker_id": 386,
+      "start": 1220520,
+      "end": 1224008
+    },
+    {
+      "ticker": "MATX",
+      "ticker_id": 387,
+      "start": 1224008,
+      "end": 1227666
+    },
+    {
+      "ticker": "MBUU",
+      "ticker_id": 388,
+      "start": 1227666,
+      "end": 1230863
+    },
+    {
+      "ticker": "MCD",
+      "ticker_id": 389,
+      "start": 1230863,
+      "end": 1234054
+    },
+    {
+      "ticker": "MCFT",
+      "ticker_id": 390,
+      "start": 1234054,
+      "end": 1236884
+    },
+    {
+      "ticker": "MCHP",
+      "ticker_id": 391,
+      "start": 1236884,
+      "end": 1240372
+    },
+    {
+      "ticker": "MCO",
+      "ticker_id": 392,
+      "start": 1240372,
+      "end": 1243433
+    },
+    {
+      "ticker": "MCS",
+      "ticker_id": 393,
+      "start": 1243433,
+      "end": 1246842
+    },
+    {
+      "ticker": "MDLZ",
+      "ticker_id": 394,
+      "start": 1246842,
+      "end": 1250033
+    },
+    {
+      "ticker": "MDT",
+      "ticker_id": 395,
+      "start": 1250033,
+      "end": 1253094
+    },
+    {
+      "ticker": "MEI",
+      "ticker_id": 396,
+      "start": 1253094,
+      "end": 1256752
+    },
+    {
+      "ticker": "MELI",
+      "ticker_id": 397,
+      "start": 1256752,
+      "end": 1259813
+    },
+    {
+      "ticker": "MET",
+      "ticker_id": 398,
+      "start": 1259813,
+      "end": 1263004
+    },
+    {
+      "ticker": "META",
+      "ticker_id": 399,
+      "start": 1263004,
+      "end": 1266195
+    },
+    {
+      "ticker": "MFA",
+      "ticker_id": 400,
+      "start": 1266195,
+      "end": 1269766
+    },
+    {
+      "ticker": "MGA",
+      "ticker_id": 401,
+      "start": 1269766,
+      "end": 1273424
+    },
+    {
+      "ticker": "MGEE",
+      "ticker_id": 402,
+      "start": 1273424,
+      "end": 1276912
+    },
+    {
+      "ticker": "MGM",
+      "ticker_id": 403,
+      "start": 1276912,
+      "end": 1280400
+    },
+    {
+      "ticker": "MHK",
+      "ticker_id": 404,
+      "start": 1280400,
+      "end": 1283888
+    },
+    {
+      "ticker": "MKC",
+      "ticker_id": 405,
+      "start": 1283888,
+      "end": 1286949
+    },
+    {
+      "ticker": "MKSI",
+      "ticker_id": 406,
+      "start": 1286949,
+      "end": 1290437
+    },
+    {
+      "ticker": "MLCO",
+      "ticker_id": 407,
+      "start": 1290437,
+      "end": 1293925
+    },
+    {
+      "ticker": "MMM",
+      "ticker_id": 408,
+      "start": 1293925,
+      "end": 1296986
+    },
+    {
+      "ticker": "MNST",
+      "ticker_id": 409,
+      "start": 1296986,
+      "end": 1300047
+    },
+    {
+      "ticker": "MO",
+      "ticker_id": 410,
+      "start": 1300047,
+      "end": 1303108
+    },
+    {
+      "ticker": "MOD",
+      "ticker_id": 411,
+      "start": 1303108,
+      "end": 1306596
+    },
+    {
+      "ticker": "MOS",
+      "ticker_id": 412,
+      "start": 1306596,
+      "end": 1310005
+    },
+    {
+      "ticker": "MPC",
+      "ticker_id": 413,
+      "start": 1310005,
+      "end": 1313338
+    },
+    {
+      "ticker": "MPWR",
+      "ticker_id": 414,
+      "start": 1313338,
+      "end": 1316826
+    },
+    {
+      "ticker": "MRK",
+      "ticker_id": 415,
+      "start": 1316826,
+      "end": 1320017
+    },
+    {
+      "ticker": "MRTN",
+      "ticker_id": 416,
+      "start": 1320017,
+      "end": 1323675
+    },
+    {
+      "ticker": "MS",
+      "ticker_id": 417,
+      "start": 1323675,
+      "end": 1326866
+    },
+    {
+      "ticker": "MSFT",
+      "ticker_id": 418,
+      "start": 1326866,
+      "end": 1330057
+    },
+    {
+      "ticker": "MSGE",
+      "ticker_id": 419,
+      "start": 1330057,
+      "end": 1330937
+    },
+    {
+      "ticker": "MSGS",
+      "ticker_id": 420,
+      "start": 1330937,
+      "end": 1333724
+    },
+    {
+      "ticker": "MTB",
+      "ticker_id": 421,
+      "start": 1333724,
+      "end": 1337382
+    },
+    {
+      "ticker": "MTD",
+      "ticker_id": 422,
+      "start": 1337382,
+      "end": 1340870
+    },
+    {
+      "ticker": "MTH",
+      "ticker_id": 423,
+      "start": 1340870,
+      "end": 1344358
+    },
+    {
+      "ticker": "MTSI",
+      "ticker_id": 424,
+      "start": 1344358,
+      "end": 1347846
+    },
+    {
+      "ticker": "MTZ",
+      "ticker_id": 425,
+      "start": 1347846,
+      "end": 1351417
+    },
+    {
+      "ticker": "MU",
+      "ticker_id": 426,
+      "start": 1351417,
+      "end": 1354608
+    },
+    {
+      "ticker": "MXL",
+      "ticker_id": 427,
+      "start": 1354608,
+      "end": 1358096
+    },
+    {
+      "ticker": "NAVI",
+      "ticker_id": 428,
+      "start": 1358096,
+      "end": 1361240
+    },
+    {
+      "ticker": "NCLH",
+      "ticker_id": 429,
+      "start": 1361240,
+      "end": 1364301
+    },
+    {
+      "ticker": "NEE",
+      "ticker_id": 430,
+      "start": 1364301,
+      "end": 1367492
+    },
+    {
+      "ticker": "NESN.SW",
+      "ticker_id": 431,
+      "start": 1367492,
+      "end": 1370683
+    },
+    {
+      "ticker": "NET",
+      "ticker_id": 432,
+      "start": 1370683,
+      "end": 1372466
+    },
+    {
+      "ticker": "NFG",
+      "ticker_id": 433,
+      "start": 1372466,
+      "end": 1375954
+    },
+    {
+      "ticker": "NFLX",
+      "ticker_id": 434,
+      "start": 1375954,
+      "end": 1379145
+    },
+    {
+      "ticker": "NGVC",
+      "ticker_id": 435,
+      "start": 1379145,
+      "end": 1382405
+    },
+    {
+      "ticker": "NHI",
+      "ticker_id": 436,
+      "start": 1382405,
+      "end": 1386063
+    },
+    {
+      "ticker": "NI",
+      "ticker_id": 437,
+      "start": 1386063,
+      "end": 1389124
+    },
+    {
+      "ticker": "NJR",
+      "ticker_id": 438,
+      "start": 1389124,
+      "end": 1392457
+    },
+    {
+      "ticker": "NKE",
+      "ticker_id": 439,
+      "start": 1392457,
+      "end": 1395648
+    },
+    {
+      "ticker": "NLY",
+      "ticker_id": 440,
+      "start": 1395648,
+      "end": 1399219
+    },
+    {
+      "ticker": "NMFC",
+      "ticker_id": 441,
+      "start": 1399219,
+      "end": 1402479
+    },
+    {
+      "ticker": "NNI",
+      "ticker_id": 442,
+      "start": 1402479,
+      "end": 1406137
+    },
+    {
+      "ticker": "NNN",
+      "ticker_id": 443,
+      "start": 1406137,
+      "end": 1409470
+    },
+    {
+      "ticker": "NOC",
+      "ticker_id": 444,
+      "start": 1409470,
+      "end": 1412531
+    },
+    {
+      "ticker": "NOVN.SW",
+      "ticker_id": 445,
+      "start": 1412531,
+      "end": 1415722
+    },
+    {
+      "ticker": "NOW",
+      "ticker_id": 446,
+      "start": 1415722,
+      "end": 1418913
+    },
+    {
+      "ticker": "NTAP",
+      "ticker_id": 447,
+      "start": 1418913,
+      "end": 1422104
+    },
+    {
+      "ticker": "NTR",
+      "ticker_id": 448,
+      "start": 1422104,
+      "end": 1424314
+    },
+    {
+      "ticker": "NTRS",
+      "ticker_id": 449,
+      "start": 1424314,
+      "end": 1427505
+    },
+    {
+      "ticker": "NUE",
+      "ticker_id": 450,
+      "start": 1427505,
+      "end": 1430914
+    },
+    {
+      "ticker": "NVDA",
+      "ticker_id": 451,
+      "start": 1430914,
+      "end": 1434105
+    },
+    {
+      "ticker": "NVR",
+      "ticker_id": 452,
+      "start": 1434105,
+      "end": 1437593
+    },
+    {
+      "ticker": "NVTS",
+      "ticker_id": 453,
+      "start": 1437593,
+      "end": 1438846
+    },
+    {
+      "ticker": "NWE",
+      "ticker_id": 454,
+      "start": 1438846,
+      "end": 1442179
+    },
+    {
+      "ticker": "O",
+      "ticker_id": 455,
+      "start": 1442179,
+      "end": 1445512
+    },
+    {
+      "ticker": "OBDC",
+      "ticker_id": 456,
+      "start": 1445512,
+      "end": 1447335
+    },
+    {
+      "ticker": "OC",
+      "ticker_id": 457,
+      "start": 1447335,
+      "end": 1450823
+    },
+    {
+      "ticker": "OCSL",
+      "ticker_id": 458,
+      "start": 1450823,
+      "end": 1454083
+    },
+    {
+      "ticker": "ODFL",
+      "ticker_id": 459,
+      "start": 1454083,
+      "end": 1457144
+    },
+    {
+      "ticker": "OGE",
+      "ticker_id": 460,
+      "start": 1457144,
+      "end": 1460477
+    },
+    {
+      "ticker": "OHI",
+      "ticker_id": 461,
+      "start": 1460477,
+      "end": 1464135
+    },
+    {
+      "ticker": "OKE",
+      "ticker_id": 462,
+      "start": 1464135,
+      "end": 1467623
+    },
+    {
+      "ticker": "OKTA",
+      "ticker_id": 463,
+      "start": 1467623,
+      "end": 1470018
+    },
+    {
+      "ticker": "OMF",
+      "ticker_id": 464,
+      "start": 1470018,
+      "end": 1473288
+    },
+    {
+      "ticker": "ON",
+      "ticker_id": 465,
+      "start": 1473288,
+      "end": 1476776
+    },
+    {
+      "ticker": "ONB",
+      "ticker_id": 466,
+      "start": 1476776,
+      "end": 1480434
+    },
+    {
+      "ticker": "ORC",
+      "ticker_id": 467,
+      "start": 1480434,
+      "end": 1483873
+    },
+    {
+      "ticker": "ORCL",
+      "ticker_id": 468,
+      "start": 1483873,
+      "end": 1487064
+    },
+    {
+      "ticker": "ORLY",
+      "ticker_id": 469,
+      "start": 1487064,
+      "end": 1490125
+    },
+    {
+      "ticker": "OSK",
+      "ticker_id": 470,
+      "start": 1490125,
+      "end": 1493534
+    },
+    {
+      "ticker": "OWL",
+      "ticker_id": 471,
+      "start": 1493534,
+      "end": 1495001
+    },
+    {
+      "ticker": "OXY",
+      "ticker_id": 472,
+      "start": 1495001,
+      "end": 1498489
+    },
+    {
+      "ticker": "PANW",
+      "ticker_id": 473,
+      "start": 1498489,
+      "end": 1501680
+    },
+    {
+      "ticker": "PAYX",
+      "ticker_id": 474,
+      "start": 1501680,
+      "end": 1504871
+    },
+    {
+      "ticker": "PBF",
+      "ticker_id": 475,
+      "start": 1504871,
+      "end": 1508204
+    },
+    {
+      "ticker": "PCAR",
+      "ticker_id": 476,
+      "start": 1508204,
+      "end": 1511265
+    },
+    {
+      "ticker": "PCG",
+      "ticker_id": 477,
+      "start": 1511265,
+      "end": 1514326
+    },
+    {
+      "ticker": "PDFS",
+      "ticker_id": 478,
+      "start": 1514326,
+      "end": 1517814
+    },
+    {
+      "ticker": "PDM",
+      "ticker_id": 479,
+      "start": 1517814,
+      "end": 1521472
+    },
+    {
+      "ticker": "PEG",
+      "ticker_id": 480,
+      "start": 1521472,
+      "end": 1524533
+    },
+    {
+      "ticker": "PENN",
+      "ticker_id": 481,
+      "start": 1524533,
+      "end": 1528021
+    },
+    {
+      "ticker": "PFE",
+      "ticker_id": 482,
+      "start": 1528021,
+      "end": 1531212
+    },
+    {
+      "ticker": "PFGC",
+      "ticker_id": 483,
+      "start": 1531212,
+      "end": 1533990
+    },
+    {
+      "ticker": "PFLT",
+      "ticker_id": 484,
+      "start": 1533990,
+      "end": 1537250
+    },
+    {
+      "ticker": "PG",
+      "ticker_id": 485,
+      "start": 1537250,
+      "end": 1540441
+    },
+    {
+      "ticker": "PGR",
+      "ticker_id": 486,
+      "start": 1540441,
+      "end": 1543502
+    },
+    {
+      "ticker": "PH",
+      "ticker_id": 487,
+      "start": 1543502,
+      "end": 1546563
+    },
+    {
+      "ticker": "PHM",
+      "ticker_id": 488,
+      "start": 1546563,
+      "end": 1550051
+    },
+    {
+      "ticker": "PII",
+      "ticker_id": 489,
+      "start": 1550051,
+      "end": 1553460
+    },
+    {
+      "ticker": "PKG",
+      "ticker_id": 490,
+      "start": 1553460,
+      "end": 1556948
+    },
+    {
+      "ticker": "PLD",
+      "ticker_id": 491,
+      "start": 1556948,
+      "end": 1560139
+    },
+    {
+      "ticker": "PLTR",
+      "ticker_id": 492,
+      "start": 1560139,
+      "end": 1561658
+    },
+    {
+      "ticker": "PLXS",
+      "ticker_id": 493,
+      "start": 1561658,
+      "end": 1565146
+    },
+    {
+      "ticker": "PM",
+      "ticker_id": 494,
+      "start": 1565146,
+      "end": 1568337
+    },
+    {
+      "ticker": "PNFP",
+      "ticker_id": 495,
+      "start": 1568337,
+      "end": 1571746
+    },
+    {
+      "ticker": "PNNT",
+      "ticker_id": 496,
+      "start": 1571746,
+      "end": 1575006
+    },
+    {
+      "ticker": "PNW",
+      "ticker_id": 497,
+      "start": 1575006,
+      "end": 1578339
+    },
+    {
+      "ticker": "PODD",
+      "ticker_id": 498,
+      "start": 1578339,
+      "end": 1581827
+    },
+    {
+      "ticker": "POR",
+      "ticker_id": 499,
+      "start": 1581827,
+      "end": 1585160
+    },
+    {
+      "ticker": "POWI",
+      "ticker_id": 500,
+      "start": 1585160,
+      "end": 1588648
+    },
+    {
+      "ticker": "PPG",
+      "ticker_id": 501,
+      "start": 1588648,
+      "end": 1592219
+    },
+    {
+      "ticker": "PPL",
+      "ticker_id": 502,
+      "start": 1592219,
+      "end": 1595280
+    },
+    {
+      "ticker": "PRAA",
+      "ticker_id": 503,
+      "start": 1595280,
+      "end": 1598938
+    },
+    {
+      "ticker": "PRG",
+      "ticker_id": 504,
+      "start": 1598938,
+      "end": 1602596
+    },
+    {
+      "ticker": "PRI",
+      "ticker_id": 505,
+      "start": 1602596,
+      "end": 1606167
+    },
+    {
+      "ticker": "PRU",
+      "ticker_id": 506,
+      "start": 1606167,
+      "end": 1609358
+    },
+    {
+      "ticker": "PSA",
+      "ticker_id": 507,
+      "start": 1609358,
+      "end": 1612691
+    },
+    {
+      "ticker": "PSEC",
+      "ticker_id": 508,
+      "start": 1612691,
+      "end": 1615951
+    },
+    {
+      "ticker": "PSX",
+      "ticker_id": 509,
+      "start": 1615951,
+      "end": 1619284
+    },
+    {
+      "ticker": "PWR",
+      "ticker_id": 510,
+      "start": 1619284,
+      "end": 1622855
+    },
+    {
+      "ticker": "PYPL",
+      "ticker_id": 511,
+      "start": 1622855,
+      "end": 1625694
+    },
+    {
+      "ticker": "QCOM",
+      "ticker_id": 512,
+      "start": 1625694,
+      "end": 1628885
+    },
+    {
+      "ticker": "RBC",
+      "ticker_id": 514,
+      "start": 1628885,
+      "end": 1632456
+    },
+    {
+      "ticker": "RCL",
+      "ticker_id": 515,
+      "start": 1632456,
+      "end": 1635517
+    },
+    {
+      "ticker": "REG",
+      "ticker_id": 516,
+      "start": 1635517,
+      "end": 1638850
+    },
+    {
+      "ticker": "REGN",
+      "ticker_id": 517,
+      "start": 1638850,
+      "end": 1641911
+    },
+    {
+      "ticker": "RF",
+      "ticker_id": 518,
+      "start": 1641911,
+      "end": 1645569
+    },
+    {
+      "ticker": "RGA",
+      "ticker_id": 519,
+      "start": 1645569,
+      "end": 1649140
+    },
+    {
+      "ticker": "RIO",
+      "ticker_id": 520,
+      "start": 1649140,
+      "end": 1652549
+    },
+    {
+      "ticker": "RITM",
+      "ticker_id": 521,
+      "start": 1652549,
+      "end": 1655935
+    },
+    {
+      "ticker": "RMBS",
+      "ticker_id": 522,
+      "start": 1655935,
+      "end": 1659423
+    },
+    {
+      "ticker": "RMD",
+      "ticker_id": 523,
+      "start": 1659423,
+      "end": 1662911
+    },
+    {
+      "ticker": "RNR",
+      "ticker_id": 524,
+      "start": 1662911,
+      "end": 1666482
+    },
+    {
+      "ticker": "ROST",
+      "ticker_id": 525,
+      "start": 1666482,
+      "end": 1669543
+    },
+    {
+      "ticker": "RPM",
+      "ticker_id": 526,
+      "start": 1669543,
+      "end": 1673114
+    },
+    {
+      "ticker": "RPRX",
+      "ticker_id": 527,
+      "start": 1673114,
+      "end": 1674707
+    },
+    {
+      "ticker": "RS",
+      "ticker_id": 528,
+      "start": 1674707,
+      "end": 1678116
+    },
+    {
+      "ticker": "RTX",
+      "ticker_id": 529,
+      "start": 1678116,
+      "end": 1681307
+    },
+    {
+      "ticker": "SAIA",
+      "ticker_id": 530,
+      "start": 1681307,
+      "end": 1684965
+    },
+    {
+      "ticker": "SANM",
+      "ticker_id": 531,
+      "start": 1684965,
+      "end": 1688453
+    },
+    {
+      "ticker": "SBAC",
+      "ticker_id": 532,
+      "start": 1688453,
+      "end": 1691786
+    },
+    {
+      "ticker": "SBNY",
+      "ticker_id": 533,
+      "start": 1691786,
+      "end": 1692331
+    },
+    {
+      "ticker": "SBRA",
+      "ticker_id": 534,
+      "start": 1692331,
+      "end": 1695989
+    },
+    {
+      "ticker": "SBUX",
+      "ticker_id": 535,
+      "start": 1695989,
+      "end": 1699050
+    },
+    {
+      "ticker": "SCCO",
+      "ticker_id": 536,
+      "start": 1699050,
+      "end": 1702459
+    },
+    {
+      "ticker": "SCHW",
+      "ticker_id": 537,
+      "start": 1702459,
+      "end": 1705650
+    },
+    {
+      "ticker": "SCM",
+      "ticker_id": 538,
+      "start": 1705650,
+      "end": 1708910
+    },
+    {
+      "ticker": "SEIC",
+      "ticker_id": 539,
+      "start": 1708910,
+      "end": 1712170
+    },
+    {
+      "ticker": "SFM",
+      "ticker_id": 540,
+      "start": 1712170,
+      "end": 1715430
+    },
+    {
+      "ticker": "SHW",
+      "ticker_id": 541,
+      "start": 1715430,
+      "end": 1718491
+    },
+    {
+      "ticker": "SITM",
+      "ticker_id": 542,
+      "start": 1718491,
+      "end": 1720226
+    },
+    {
+      "ticker": "SJM",
+      "ticker_id": 543,
+      "start": 1720226,
+      "end": 1723287
+    },
+    {
+      "ticker": "SLAB",
+      "ticker_id": 544,
+      "start": 1723287,
+      "end": 1726775
+    },
+    {
+      "ticker": "SLB",
+      "ticker_id": 545,
+      "start": 1726775,
+      "end": 1730263
+    },
+    {
+      "ticker": "SLG",
+      "ticker_id": 546,
+      "start": 1730263,
+      "end": 1733921
+    },
+    {
+      "ticker": "SLGN",
+      "ticker_id": 547,
+      "start": 1733921,
+      "end": 1737409
+    },
+    {
+      "ticker": "SLM",
+      "ticker_id": 548,
+      "start": 1737409,
+      "end": 1741067
+    },
+    {
+      "ticker": "SLRC",
+      "ticker_id": 549,
+      "start": 1741067,
+      "end": 1744327
+    },
+    {
+      "ticker": "SMG",
+      "ticker_id": 550,
+      "start": 1744327,
+      "end": 1747898
+    },
+    {
+      "ticker": "SMP",
+      "ticker_id": 551,
+      "start": 1747898,
+      "end": 1751556
+    },
+    {
+      "ticker": "SMTC",
+      "ticker_id": 552,
+      "start": 1751556,
+      "end": 1755044
+    },
+    {
+      "ticker": "SNA",
+      "ticker_id": 553,
+      "start": 1755044,
+      "end": 1758615
+    },
+    {
+      "ticker": "SNDR",
+      "ticker_id": 554,
+      "start": 1758615,
+      "end": 1761011
+    },
+    {
+      "ticker": "SNN",
+      "ticker_id": 555,
+      "start": 1761011,
+      "end": 1764499
+    },
+    {
+      "ticker": "SNPS",
+      "ticker_id": 556,
+      "start": 1764499,
+      "end": 1767560
+    },
+    {
+      "ticker": "SO",
+      "ticker_id": 557,
+      "start": 1767560,
+      "end": 1770621
+    },
+    {
+      "ticker": "SON",
+      "ticker_id": 558,
+      "start": 1770621,
+      "end": 1774109
+    },
+    {
+      "ticker": "SPCX",
+      "ticker_id": 559,
+      "start": 1774109,
+      "end": 1774197
+    },
+    {
+      "ticker": "SPG",
+      "ticker_id": 560,
+      "start": 1774197,
+      "end": 1777530
+    },
+    {
+      "ticker": "SPGI",
+      "ticker_id": 561,
+      "start": 1777530,
+      "end": 1780721
+    },
+    {
+      "ticker": "SPT",
+      "ticker_id": 562,
+      "start": 1780721,
+      "end": 1782440
+    },
+    {
+      "ticker": "SQM",
+      "ticker_id": 563,
+      "start": 1782440,
+      "end": 1785849
+    },
+    {
+      "ticker": "SR",
+      "ticker_id": 564,
+      "start": 1785849,
+      "end": 1789182
+    },
+    {
+      "ticker": "SRE",
+      "ticker_id": 565,
+      "start": 1789182,
+      "end": 1792243
+    },
+    {
+      "ticker": "SSD",
+      "ticker_id": 566,
+      "start": 1792243,
+      "end": 1795731
+    },
+    {
+      "ticker": "STC",
+      "ticker_id": 567,
+      "start": 1795731,
+      "end": 1799302
+    },
+    {
+      "ticker": "STE",
+      "ticker_id": 568,
+      "start": 1799302,
+      "end": 1802790
+    },
+    {
+      "ticker": "STEP",
+      "ticker_id": 569,
+      "start": 1802790,
+      "end": 1804319
+    },
+    {
+      "ticker": "STLD",
+      "ticker_id": 570,
+      "start": 1804319,
+      "end": 1807728
+    },
+    {
+      "ticker": "STN",
+      "ticker_id": 571,
+      "start": 1807728,
+      "end": 1811299
+    },
+    {
+      "ticker": "STRT",
+      "ticker_id": 572,
+      "start": 1811299,
+      "end": 1814957
+    },
+    {
+      "ticker": "STT",
+      "ticker_id": 573,
+      "start": 1814957,
+      "end": 1818148
+    },
+    {
+      "ticker": "STWD",
+      "ticker_id": 574,
+      "start": 1818148,
+      "end": 1821719
+    },
+    {
+      "ticker": "STX",
+      "ticker_id": 575,
+      "start": 1821719,
+      "end": 1824780
+    },
+    {
+      "ticker": "STZ",
+      "ticker_id": 576,
+      "start": 1824780,
+      "end": 1827841
+    },
+    {
+      "ticker": "SUI",
+      "ticker_id": 577,
+      "start": 1827841,
+      "end": 1831412
+    },
+    {
+      "ticker": "SWK",
+      "ticker_id": 578,
+      "start": 1831412,
+      "end": 1834983
+    },
+    {
+      "ticker": "SWKS",
+      "ticker_id": 579,
+      "start": 1834983,
+      "end": 1838471
+    },
+    {
+      "ticker": "SWX",
+      "ticker_id": 580,
+      "start": 1838471,
+      "end": 1841804
+    },
+    {
+      "ticker": "SYK",
+      "ticker_id": 581,
+      "start": 1841804,
+      "end": 1844995
+    },
+    {
+      "ticker": "SYY",
+      "ticker_id": 582,
+      "start": 1844995,
+      "end": 1848255
+    },
+    {
+      "ticker": "T",
+      "ticker_id": 583,
+      "start": 1848255,
+      "end": 1851446
+    },
+    {
+      "ticker": "TAP",
+      "ticker_id": 584,
+      "start": 1851446,
+      "end": 1854507
+    },
+    {
+      "ticker": "TCPC",
+      "ticker_id": 585,
+      "start": 1854507,
+      "end": 1857767
+    },
+    {
+      "ticker": "TDG",
+      "ticker_id": 586,
+      "start": 1857767,
+      "end": 1860958
+    },
+    {
+      "ticker": "TECH",
+      "ticker_id": 587,
+      "start": 1860958,
+      "end": 1864446
+    },
+    {
+      "ticker": "TECK",
+      "ticker_id": 588,
+      "start": 1864446,
+      "end": 1867855
+    },
+    {
+      "ticker": "TEL",
+      "ticker_id": 589,
+      "start": 1867855,
+      "end": 1871046
+    },
+    {
+      "ticker": "TEN",
+      "ticker_id": 590,
+      "start": 1871046,
+      "end": 1874704
+    },
+    {
+      "ticker": "TER",
+      "ticker_id": 591,
+      "start": 1874704,
+      "end": 1878192
+    },
+    {
+      "ticker": "TEX",
+      "ticker_id": 592,
+      "start": 1878192,
+      "end": 1881601
+    },
+    {
+      "ticker": "THRM",
+      "ticker_id": 593,
+      "start": 1881601,
+      "end": 1885259
+    },
+    {
+      "ticker": "TJX",
+      "ticker_id": 594,
+      "start": 1885259,
+      "end": 1888450
+    },
+    {
+      "ticker": "TKR",
+      "ticker_id": 595,
+      "start": 1888450,
+      "end": 1892021
+    },
+    {
+      "ticker": "TM",
+      "ticker_id": 596,
+      "start": 1892021,
+      "end": 1895212
+    },
+    {
+      "ticker": "TMO",
+      "ticker_id": 597,
+      "start": 1895212,
+      "end": 1898403
+    },
+    {
+      "ticker": "TOL",
+      "ticker_id": 598,
+      "start": 1898403,
+      "end": 1901891
+    },
+    {
+      "ticker": "TPG",
+      "ticker_id": 599,
+      "start": 1901891,
+      "end": 1903085
+    },
+    {
+      "ticker": "TPVG",
+      "ticker_id": 600,
+      "start": 1903085,
+      "end": 1906259
+    },
+    {
+      "ticker": "TREX",
+      "ticker_id": 601,
+      "start": 1906259,
+      "end": 1909747
+    },
+    {
+      "ticker": "TRGP",
+      "ticker_id": 602,
+      "start": 1909747,
+      "end": 1913235
+    },
+    {
+      "ticker": "TRI",
+      "ticker_id": 603,
+      "start": 1913235,
+      "end": 1916723
+    },
+    {
+      "ticker": "TRIN",
+      "ticker_id": 604,
+      "start": 1916723,
+      "end": 1918159
+    },
+    {
+      "ticker": "TROW",
+      "ticker_id": 605,
+      "start": 1918159,
+      "end": 1921350
+    },
+    {
+      "ticker": "TRV",
+      "ticker_id": 606,
+      "start": 1921350,
+      "end": 1924411
+    },
+    {
+      "ticker": "TSCO",
+      "ticker_id": 607,
+      "start": 1924411,
+      "end": 1927472
+    },
+    {
+      "ticker": "TSLA",
+      "ticker_id": 608,
+      "start": 1927472,
+      "end": 1930663
+    },
+    {
+      "ticker": "TSN",
+      "ticker_id": 609,
+      "start": 1930663,
+      "end": 1933724
+    },
+    {
+      "ticker": "TT",
+      "ticker_id": 610,
+      "start": 1933724,
+      "end": 1937212
+    },
+    {
+      "ticker": "TTE",
+      "ticker_id": 611,
+      "start": 1937212,
+      "end": 1940273
+    },
+    {
+      "ticker": "TTEK",
+      "ticker_id": 612,
+      "start": 1940273,
+      "end": 1943844
+    },
+    {
+      "ticker": "TTMI",
+      "ticker_id": 613,
+      "start": 1943844,
+      "end": 1947332
+    },
+    {
+      "ticker": "TXT",
+      "ticker_id": 615,
+      "start": 1947332,
+      "end": 1950523
+    },
+    {
+      "ticker": "UAL",
+      "ticker_id": 616,
+      "start": 1950523,
+      "end": 1953714
+    },
+    {
+      "ticker": "UBER",
+      "ticker_id": 617,
+      "start": 1953714,
+      "end": 1955584
+    },
+    {
+      "ticker": "UDR",
+      "ticker_id": 618,
+      "start": 1955584,
+      "end": 1958917
+    },
+    {
+      "ticker": "UMBF",
+      "ticker_id": 619,
+      "start": 1958917,
+      "end": 1962326
+    },
+    {
+      "ticker": "UMH",
+      "ticker_id": 620,
+      "start": 1962326,
+      "end": 1965897
+    },
+    {
+      "ticker": "UNFI",
+      "ticker_id": 621,
+      "start": 1965897,
+      "end": 1969157
+    },
+    {
+      "ticker": "UNH",
+      "ticker_id": 622,
+      "start": 1969157,
+      "end": 1972348
+    },
+    {
+      "ticker": "UNM",
+      "ticker_id": 623,
+      "start": 1972348,
+      "end": 1975919
+    },
+    {
+      "ticker": "UNP",
+      "ticker_id": 624,
+      "start": 1975919,
+      "end": 1979110
+    },
+    {
+      "ticker": "UPS",
+      "ticker_id": 625,
+      "start": 1979110,
+      "end": 1982301
+    },
+    {
+      "ticker": "URI",
+      "ticker_id": 626,
+      "start": 1982301,
+      "end": 1985362
+    },
+    {
+      "ticker": "USFD",
+      "ticker_id": 627,
+      "start": 1985362,
+      "end": 1987975
+    },
+    {
+      "ticker": "USX",
+      "ticker_id": 628,
+      "start": 1987975,
+      "end": 1988070
+    },
+    {
+      "ticker": "V",
+      "ticker_id": 629,
+      "start": 1988070,
+      "end": 1991261
+    },
+    {
+      "ticker": "VALE",
+      "ticker_id": 630,
+      "start": 1991261,
+      "end": 1994670
+    },
+    {
+      "ticker": "VECO",
+      "ticker_id": 631,
+      "start": 1994670,
+      "end": 1998158
+    },
+    {
+      "ticker": "VICI",
+      "ticker_id": 632,
+      "start": 1998158,
+      "end": 2000368
+    },
+    {
+      "ticker": "VLGEA",
+      "ticker_id": 633,
+      "start": 2000368,
+      "end": 2003628
+    },
+    {
+      "ticker": "VLO",
+      "ticker_id": 634,
+      "start": 2003628,
+      "end": 2006961
+    },
+    {
+      "ticker": "VNO",
+      "ticker_id": 635,
+      "start": 2006961,
+      "end": 2010619
+    },
+    {
+      "ticker": "VRTS",
+      "ticker_id": 636,
+      "start": 2010619,
+      "end": 2013879
+    },
+    {
+      "ticker": "VRTX",
+      "ticker_id": 637,
+      "start": 2013879,
+      "end": 2017367
+    },
+    {
+      "ticker": "VTR",
+      "ticker_id": 638,
+      "start": 2017367,
+      "end": 2020700
+    },
+    {
+      "ticker": "VTRS",
+      "ticker_id": 639,
+      "start": 2020700,
+      "end": 2024188
+    },
+    {
+      "ticker": "VZ",
+      "ticker_id": 640,
+      "start": 2024188,
+      "end": 2027379
+    },
+    {
+      "ticker": "WAL",
+      "ticker_id": 641,
+      "start": 2027379,
+      "end": 2031037
+    },
+    {
+      "ticker": "WAT",
+      "ticker_id": 642,
+      "start": 2031037,
+      "end": 2034525
+    },
+    {
+      "ticker": "WDC",
+      "ticker_id": 644,
+      "start": 2034525,
+      "end": 2037716
+    },
+    {
+      "ticker": "WEC",
+      "ticker_id": 645,
+      "start": 2037716,
+      "end": 2040777
+    },
+    {
+      "ticker": "WELL",
+      "ticker_id": 646,
+      "start": 2040777,
+      "end": 2044110
+    },
+    {
+      "ticker": "WHF",
+      "ticker_id": 647,
+      "start": 2044110,
+      "end": 2047370
+    },
+    {
+      "ticker": "WMB",
+      "ticker_id": 648,
+      "start": 2047370,
+      "end": 2050858
+    },
+    {
+      "ticker": "WMK",
+      "ticker_id": 649,
+      "start": 2050858,
+      "end": 2054118
+    },
+    {
+      "ticker": "WMT",
+      "ticker_id": 650,
+      "start": 2054118,
+      "end": 2057309
+    },
+    {
+      "ticker": "WOLF",
+      "ticker_id": 651,
+      "start": 2057309,
+      "end": 2057574
+    },
+    {
+      "ticker": "WOR",
+      "ticker_id": 652,
+      "start": 2057574,
+      "end": 2060983
+    },
+    {
+      "ticker": "WPC",
+      "ticker_id": 653,
+      "start": 2060983,
+      "end": 2064316
+    },
+    {
+      "ticker": "WRB",
+      "ticker_id": 654,
+      "start": 2064316,
+      "end": 2067507
+    },
+    {
+      "ticker": "WRLD",
+      "ticker_id": 655,
+      "start": 2067507,
+      "end": 2071165
+    },
+    {
+      "ticker": "WST",
+      "ticker_id": 656,
+      "start": 2071165,
+      "end": 2074653
+    },
+    {
+      "ticker": "WTW",
+      "ticker_id": 657,
+      "start": 2074653,
+      "end": 2077844
+    },
+    {
+      "ticker": "WYNN",
+      "ticker_id": 658,
+      "start": 2077844,
+      "end": 2081332
+    },
+    {
+      "ticker": "XEL",
+      "ticker_id": 659,
+      "start": 2081332,
+      "end": 2084393
+    },
+    {
+      "ticker": "XOM",
+      "ticker_id": 660,
+      "start": 2084393,
+      "end": 2087584
+    },
+    {
+      "ticker": "XPEL",
+      "ticker_id": 661,
+      "start": 2087584,
+      "end": 2089419
+    },
+    {
+      "ticker": "XPO",
+      "ticker_id": 662,
+      "start": 2089419,
+      "end": 2093077
+    },
+    {
+      "ticker": "XRAY",
+      "ticker_id": 663,
+      "start": 2093077,
+      "end": 2096565
+    },
+    {
+      "ticker": "YUM",
+      "ticker_id": 664,
+      "start": 2096565,
+      "end": 2099626
+    },
+    {
+      "ticker": "ZBH",
+      "ticker_id": 665,
+      "start": 2099626,
+      "end": 2103114
+    },
+    {
+      "ticker": "ZBRA",
+      "ticker_id": 666,
+      "start": 2103114,
+      "end": 2106305
+    },
+    {
+      "ticker": "ZION",
+      "ticker_id": 667,
+      "start": 2106305,
+      "end": 2109963
+    },
+    {
+      "ticker": "ZS",
+      "ticker_id": 668,
+      "start": 2109963,
+      "end": 2112122
+    },
+    {
+      "ticker": "ZTS",
+      "ticker_id": 669,
+      "start": 2112122,
+      "end": 2115183
+    }
+  ]
+}

@@ -12,7 +12,7 @@ from torch import nn
 
 # ================= Configuration =================
 
-BASE_DIR = Path("/home/sadhu/PycharmProjects/project")
+BASE_DIR = Path(__file__).resolve().parent
 MODEL_DIR = BASE_DIR / "stock_predictor"
 
 MODEL_PATH = MODEL_DIR / "model.pt"
