@@ -135,21 +135,85 @@ model.eval()
 print(f"Loaded model: {MODEL_PATH}")
 print(f"Known tickers: {len(ticker_ids)}")
 
-# ================= API helpers ====================
-
 def get_ticker_data(ticker):
-    return pd.DataFrame(Ticker(ticker).history(period="1mo", interval="1d"))
+    ticker = ticker.strip().upper()
+
+    if not ticker:
+        return pd.DataFrame()
+
+    frame = Ticker(ticker).history(
+        period="1mo",
+        interval="1d",
+        auto_adjust=False,
+    )
+
+    if frame.empty:
+        return frame
+
+    # yfinance returns the date as the index.
+    frame = frame.reset_index()
+
+    # Normalize the date column name.
+    if "Datetime" in frame.columns:
+        frame = frame.rename(columns={"Datetime": "Date"})
+    elif "Date" not in frame.columns:
+        return pd.DataFrame()
+
+    # Your model expects these exact feature names.
+    required = ["Open", "High", "Low", "Close", "Volume"]
+
+    missing = [
+        feature for feature in required
+        if feature not in frame.columns
+    ]
+
+    if missing:
+        raise ValueError(f"Missing stock columns: {missing}")
+
+    frame = frame[["Date", *required]].copy()
+
+    frame = frame.replace(
+        [float("inf"), float("-inf")],
+        float("nan"),
+    ).dropna(subset=required)
+
+    return frame
+
 
 def serialize_dates(frame):
     result = frame.copy()
 
-    result["Date"] = result["Date"].map(
+    result["Date"] = pd.to_datetime(
+        result["Date"], errors="coerce", utc=True
+    ).map(
         lambda value: value.isoformat()
         if pd.notna(value)
         else None
     )
 
     return result
+
+
+def load_tickers():
+    ticker_file = (
+        "/home/sadhu/PycharmProjects/project/"
+        "stock_data2/tickers.jsonl"
+    )
+
+    tickers = []
+
+    with open(ticker_file, encoding="utf-8") as file:
+        for line in file:
+            if not line.strip():
+                continue
+
+            data = json.loads(line)
+            ticker = str(data.get("ticker", "")).strip().upper()
+
+            if ticker:
+                tickers.append(ticker)
+
+    return sorted(set(tickers))
 
 
 # ================= Frontend =======================
@@ -163,70 +227,71 @@ def index():
 
 @app.get("/stocks/tickers")
 def get_tickers():
-    tickers = []
-    with open("/home/sadhu/PycharmProjects/project/stock_data2/tickers.jsonl") as f:
-        for line in f:
-            if line.strip():
-                data = json.loads(line)
-                tickers.append(data["ticker"])
-
-    return jsonify({
-        "tickers":tickers
-    })
+    try:
+        return jsonify({"tickers": load_tickers()})
+    except (OSError, ValueError, KeyError) as error:
+        app.logger.exception("Could not load ticker list")
+        return jsonify({"error": str(error)}), 500
 
 
 # ================= CSV API ========================
 
 @app.get("/stocks/csv/<ticker>")
 def get_csv(ticker):
-    frame = get_ticker_data(ticker)
+    try:
+        frame = get_ticker_data(ticker)
 
-    if frame is None or frame.empty:
-        return jsonify({"error": "Ticker not found."}), 404
+        if frame.empty:
+            return jsonify({"error": "No stock data found."}), 404
 
-    output = serialize_dates(
-        frame[["Date", *FEATURES]]
-    ).to_csv(index=False)
+        output = serialize_dates(frame).to_csv(index=False)
 
-    return Response(
-        output,
-        mimetype="text/csv",
-        headers={
-            "Content-Disposition":
-                f'attachment; filename="{ticker.upper()}.csv"'
-        },
-    )
+        return Response(
+            output,
+            mimetype="text/csv",
+            headers={
+                "Content-Disposition":
+                    f'attachment; filename="{ticker.upper()}.csv"'
+            },
+        )
+
+    except Exception:
+        app.logger.exception("Failed to retrieve CSV stock data")
+        return jsonify({"error": "Failed to retrieve stock data."}), 502
 
 
 # ================= JSONL API =====================
 
 @app.get("/stocks/jsonl/<ticker>")
 def get_jsonl(ticker):
-    frame = get_ticker_data(ticker)
+    try:
+        frame = get_ticker_data(ticker)
 
-    if frame is None or frame.empty:
-        return jsonify({"error": "Ticker not found."}), 404
+        if frame.empty:
+            return jsonify({"error": "No stock data found."}), 404
 
-    records = serialize_dates(
-        frame[["Date", *FEATURES]]
-    ).to_dict(orient="records")
+        records = serialize_dates(frame).to_dict(orient="records")
 
-    output = "\n".join(
-        json.dumps(record, allow_nan=False)
-        for record in records
-    )
+        output = "\n".join(
+            json.dumps(record, allow_nan=False)
+            for record in records
+        )
 
-    if output:
-        output += "\n"
+        if output:
+            output += "\n"
 
-    return Response(
-        output,
-        mimetype="application/x-ndjson",
-        headers={
-            "Content-Disposition":
-                f'attachment; filename="{ticker.upper()}.jsonl"'
-        },
-    )
+        return Response(
+            output,
+            mimetype="application/x-ndjson",
+            headers={
+                "Content-Disposition":
+                    f'attachment; filename="{ticker.upper()}.jsonl"'
+            },
+        )
+
+    except Exception:
+        app.logger.exception("Failed to retrieve JSONL stock data")
+        return jsonify({"error": "Failed to retrieve stock data."}), 502
 
 
 # ================= Model info API =================
