@@ -3,53 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Data Explorer</title>
-    <link rel="stylesheet" href="style.css">
+
+    <title>Stock Predictor</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js" defer></script>
+    <script src="/static/script.js" defer></script>
 </head>
+
 <body>
     <header class="topbar">
-        <a href="/" class="logo">Stock<span>View</span></a>
+        <a href="/" class="logo">Stock<span>Predictor</span></a>
 
-        <form id="stock-form" class="stock-form">
-            <input
-                type="text"
-                id="ticker"
-                placeholder="Enter ticker (e.g. NVDA)"
-                value="NVDA"
-                required
-                autocomplete="off"
-            >
-            <button type="submit" id="load-button">Load Stock</button>
-            <button type="button" id="download-button" class="secondary">
+        <div class="toolbar">
+            <select id="ticker">
+                <option value="">Loading tickers...</option>
+            </select>
+
+            <button id="load-button">Load Data</button>
+            <button id="download-button" class="secondary">
                 Download
             </button>
-        </form>
+        </div>
     </header>
 
     <main class="main">
-        <div class="heading">
+        <section class="page-heading">
             <div>
-                <p class="eyebrow">MARKET DATA</p>
-                <h1 id="stock-title">Stock Preview</h1>
-                <p class="subtitle" id="stock-subtitle">
-                    Select a ticker to inspect its historical data.
+                <p class="eyebrow">LSTM · NEXT-STEP FORECAST</p>
+                <h1 id="stock-title">Stock Dashboard</h1>
+                <p id="stock-subtitle">
+                    Load historical data to get started.
                 </p>
             </div>
 
             <div class="status">
                 <span class="status-dot"></span>
-                <span id="status-text">Ready</span>
+                <span id="status-text">Connecting</span>
             </div>
-        </div>
+        </section>
 
-        <section class="preview-card">
-            <div class="preview-header">
+        <section class="prediction-card">
+            <div class="section-heading">
                 <div>
+                    <p class="eyebrow">MODEL INFERENCE</p>
+                    <h2>Next-step prediction</h2>
+                    <p class="muted">
+                        Predict the next observation from the last 30 rows.
+                    </p>
+                </div>
+
+                <button id="predict-button" disabled>
+                    Run Prediction
+                </button>
+            </div>
+
+            <div id="prediction-result" class="prediction-result">
+                <p class="empty-message">
+                    Load a ticker to prepare the model input.
+                </p>
+            </div>
+        </section>
+
+        <section class="data-card">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">HISTORICAL DATA</p>
                     <h2 id="preview-title">Data Preview</h2>
-                    <p id="preview-description">
-                        Your stock data will appear here.
+                    <p class="muted" id="preview-description">
+                        Historical OHLCV records.
                     </p>
                 </div>
 
@@ -58,15 +81,14 @@
 
             <div id="preview" class="preview">
                 <div class="empty-state">
-                    <div class="empty-icon">↗</div>
                     <h3>No data loaded</h3>
-                    <p>Enter a ticker above to preview stock data.</p>
+                    <p>Choose a ticker to view historical data.</p>
                 </div>
             </div>
         </section>
 
-        <p class="note">
-            Data is fetched from your configured stock API.
+        <p class="footnote">
+            Predictions are model outputs, not guaranteed market prices.
         </p>
     </main>
 
@@ -74,7 +96,7 @@
         <div class="footer-inner">
             <div>
                 <label for="data-type">Preview format</label>
-                <p>Choose how to display the stock data.</p>
+                <p>Choose how historical data is displayed.</p>
             </div>
 
             <select id="data-type">
