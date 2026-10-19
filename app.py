@@ -18,7 +18,7 @@ MODEL_DIR = BASE_DIR / "stock_predictor"
 MODEL_PATH = MODEL_DIR / "model.pt"
 METADATA_PATH = MODEL_DIR / "metadata.json"
 
-SEQUENCE_LENGTH = 30
+SEQUENCE_LENGTH = 20
 FEATURES = ["Open", "High", "Low", "Close", "Volume"]
 
 app = Flask(__name__)
@@ -310,7 +310,7 @@ def model_info():
 # ================= Prediction API =================
 
 @app.post("/predict")
-def predict():
+def  predict():
     body = request.get_json(silent=True)
 
     if not isinstance(body, dict):

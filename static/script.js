@@ -16,7 +16,7 @@ const previewDescription = document.getElementById("preview-description");
 const formatBadge = document.getElementById("format-badge");
 
 const FEATURES = ["Open", "High", "Low", "Close", "Volume"];
-const SEQUENCE_LENGTH = 30;
+const SEQUENCE_LENGTH = 20;
 
 let currentTicker = "";
 let stockRows = [];
