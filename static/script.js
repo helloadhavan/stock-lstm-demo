@@ -1,30 +1,42 @@
+
+
+const SEQUENCE_LENGTH = 20;
+
+// --------------------------------------------------
+// HTML elements
+// --------------------------------------------------
+
 const tickerSelect = document.getElementById("ticker");
 const loadButton = document.getElementById("load-button");
 const downloadButton = document.getElementById("download-button");
 const predictButton = document.getElementById("predict-button");
-const dataType = document.getElementById("data-type");
-
-const preview = document.getElementById("preview");
-const predictionResult = document.getElementById("prediction-result");
+const dataTypeSelect = document.getElementById("data-type");
 
 const stockTitle = document.getElementById("stock-title");
 const stockSubtitle = document.getElementById("stock-subtitle");
 const statusText = document.getElementById("status-text");
-
 const previewTitle = document.getElementById("preview-title");
 const previewDescription = document.getElementById("preview-description");
 const formatBadge = document.getElementById("format-badge");
+const preview = document.getElementById("preview");
+const predictionResult = document.getElementById("prediction-result");
 
-const FEATURES = ["Open", "High", "Low", "Close", "Volume"];
-const SEQUENCE_LENGTH = 20;
+// Chart container and canvas are added to your HTML.
+const chartContainer = document.getElementById("chart-container");
+const chartCanvas = document.getElementById("stock-chart");
+
+// --------------------------------------------------
+// Application state
+// --------------------------------------------------
 
 let currentTicker = "";
-let stockRows = [];
-let stockHeaders = [];
-let chartInstance = null;
+let currentHistory = [];
+let stockChart = null;
+let isLoading = false;
 
-
-// ================= Helpers ========================
+// --------------------------------------------------
+// Status messages
+// --------------------------------------------------
 
 function setStatus(message) {
     statusText.textContent = message;
@@ -33,343 +45,302 @@ function setStatus(message) {
 function showError(container, message) {
     container.replaceChildren();
 
-    const element = document.createElement("div");
-    element.className = "error";
-    element.textContent = message;
+    const paragraph = document.createElement("p");
+    paragraph.className = "empty-message";
+    paragraph.textContent = message;
 
-    container.appendChild(element);
+    container.appendChild(paragraph);
 }
 
-function destroyChart() {
-    if (chartInstance) {
-        chartInstance.destroy();
-        chartInstance = null;
-    }
-}
+// --------------------------------------------------
+// API helper
+// --------------------------------------------------
 
-function showEmpty(message) {
-    preview.replaceChildren();
-
-    const container = document.createElement("div");
-    container.className = "empty-state";
-
-    const heading = document.createElement("h3");
-    heading.textContent = message;
-
-    container.appendChild(heading);
-    preview.appendChild(container);
-}
-
-async function fetchResponse(url, options = {}) {
+async function fetchJSON(url, options = {}) {
     const response = await fetch(url, options);
 
+    const data = await response.json().catch(() => ({}));
+
     if (!response.ok) {
-        let message = `HTTP ${response.status}`;
-
-        try {
-            const body = await response.json();
-            message = body.error || message;
-        } catch {
-            // The server did not return JSON.
-        }
-
-        throw new Error(message);
+        throw new Error(data.error || `Request failed (${response.status})`);
     }
 
-    return response;
+    return data;
 }
 
+// --------------------------------------------------
+// CSV parser
+// Handles quoted values and commas inside quotes.
+// --------------------------------------------------
 
-// ================= CSV parsing ===================
-
-function parseCSV(text) {
-    const records = [];
-
-    let row = [];
+function parseCSVLine(line) {
+    const fields = [];
     let field = "";
-    let quoted = false;
+    let insideQuotes = false;
 
-    for (let i = 0; i < text.length; i++) {
-        const char = text[i];
+    for (let i = 0; i < line.length; i++) {
+        const char = line[i];
 
-        if (quoted) {
-            if (char === '"' && text[i + 1] === '"') {
+        if (char === '"') {
+            if (insideQuotes && line[i + 1] === '"') {
                 field += '"';
                 i++;
-            } else if (char === '"') {
-                quoted = false;
             } else {
-                field += char;
+                insideQuotes = !insideQuotes;
             }
-        } else if (char === '"' && field.length === 0) {
-            quoted = true;
-        } else if (char === ",") {
-            row.push(field);
+        } else if (char === "," && !insideQuotes) {
+            fields.push(field);
             field = "";
-        } else if (char === "\n") {
-            row.push(field);
-            records.push(row);
-
-            row = [];
-            field = "";
-        } else if (char !== "\r") {
+        } else {
             field += char;
         }
     }
 
-    if (quoted) {
-        throw new Error("Malformed CSV: unclosed quoted field.");
-    }
-
-    if (field.length > 0 || row.length > 0) {
-        row.push(field);
-        records.push(row);
-    }
-
-    const nonEmptyRecords = records.filter((record) =>
-        record.some((value) => value.trim() !== "")
-    );
-
-    if (!nonEmptyRecords.length) {
-        return { headers: [], rows: [] };
-    }
-
-    const headers = nonEmptyRecords[0].map((value) => value.trim());
-
-    const rows = nonEmptyRecords.slice(1).map((record) => {
-        const item = {};
-
-        headers.forEach((header, index) => {
-            item[header] = record[index] ?? "";
-        });
-
-        return item;
-    });
-
-    return { headers, rows };
+    fields.push(field);
+    return fields;
 }
 
+function parseCSV(text) {
+    const lines = text.trim().split(/\r?\n/);
 
-// ================= Ticker loading =================
+    if (lines.length < 2) {
+        return [];
+    }
+
+    const headers = parseCSVLine(lines[0]).map(
+        header => header.trim()
+    );
+
+    return lines.slice(1)
+        .filter(line => line.trim())
+        .map(line => {
+            const values = parseCSVLine(line);
+            const row = {};
+
+            headers.forEach((header, index) => {
+                row[header] = values[index] ?? "";
+            });
+
+            return row;
+        });
+}
+
+// --------------------------------------------------
+// Load available tickers
+// --------------------------------------------------
 
 async function loadTickers() {
+    setStatus("Loading tickers");
+
     try {
-        const response = await fetchResponse("/stocks/tickers");
-        const data = await response.json();
+        const data = await fetchJSON("/stocks/tickers");
+        const tickers = data.tickers || [];
 
         tickerSelect.replaceChildren();
 
-        for (const ticker of data.tickers) {
+        if (tickers.length === 0) {
+            const option = document.createElement("option");
+            option.value = "";
+            option.textContent = "No tickers available";
+            tickerSelect.appendChild(option);
+
+            setStatus("No tickers found");
+            return;
+        }
+
+        for (const ticker of tickers) {
             const option = document.createElement("option");
             option.value = ticker;
             option.textContent = ticker;
-
             tickerSelect.appendChild(option);
         }
 
-        if (data.tickers.length === 0) {
-            throw new Error("No supported tickers were found.");
-        }
+        // Automatically load the first ticker.
+        await loadStock(tickers[0]);
 
-        setStatus("Ready");
-        await loadStock();
+        setStatus("Connected");
     } catch (error) {
-        setStatus("Connection error");
+        console.error(error);
+        setStatus("Connection failed");
         showError(preview, error.message);
     }
 }
 
+// --------------------------------------------------
+// Load historical data for a ticker
+// --------------------------------------------------
 
-// ================= Historical data =================
-
-async function loadStock() {
-    const ticker = tickerSelect.value;
-
-    if (!ticker) {
+async function loadStock(ticker) {
+    if (!ticker || isLoading) {
         return;
     }
+
+    isLoading = true;
+    currentTicker = ticker;
 
     loadButton.disabled = true;
     predictButton.disabled = true;
-    downloadButton.disabled = true;
 
-    destroyChart();
-    setStatus("Loading data...");
+    setStatus(`Loading ${ticker}`);
+
+    stockTitle.textContent = ticker;
+    stockSubtitle.textContent = "Loading historical data...";
 
     try {
-        const response = await fetchResponse(
+        const response = await fetch(
             `/stocks/csv/${encodeURIComponent(ticker)}`
         );
 
-        const text = await response.text();
-        const parsed = parseCSV(text);
-
-        if (parsed.rows.length === 0) {
-            throw new Error("This ticker has no historical records.");
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(
+                errorData.error || "Failed to load historical data."
+            );
         }
 
-        currentTicker = ticker;
-        stockHeaders = parsed.headers;
-        stockRows = parsed.rows;
+        const csvText = await response.text();
+        const rows = parseCSV(csvText);
 
-        stockTitle.textContent = `${ticker} Stock Data`;
+        const requiredColumns = [
+            "Date",
+            "Open",
+            "High",
+            "Low",
+            "Close",
+            "Volume",
+        ];
+
+        if (
+            rows.length === 0 ||
+            !requiredColumns.every(column => column in rows[0])
+        ) {
+            throw new Error(
+                "The CSV must contain Date, Open, High, Low, Close and Volume."
+            );
+        }
+
+        currentHistory = rows
+            .filter(row => {
+                const validDate =
+                    row.Date && !Number.isNaN(Date.parse(row.Date));
+
+                const validNumbers = [
+                    "Open", "High", "Low", "Close", "Volume",
+                ].every(key =>
+                    row[key] !== "" &&
+                    Number.isFinite(Number(row[key]))
+                );
+
+                return validDate && validNumbers;
+            })
+            .map(row => ({
+                Date: row.Date,
+                Open: Number(row.Open),
+                High: Number(row.High),
+                Low: Number(row.Low),
+                Close: Number(row.Close),
+                Volume: Number(row.Volume),
+            }))
+            .sort((a, b) =>
+                a.Date.localeCompare(b.Date)
+            );
+
+        if (currentHistory.length === 0) {
+            throw new Error("No valid historical rows were returned.");
+        }
+
+        stockTitle.textContent = ticker;
         stockSubtitle.textContent =
-            `${stockRows.length.toLocaleString()} historical records`;
+            `${currentHistory.length} historical trading rows`;
 
-        renderPreview();
-        setStatus("Loaded");
+        renderSelectedFormat();
 
         predictButton.disabled =
-            stockRows.length < SEQUENCE_LENGTH;
-    } catch (error) {
-        currentTicker = "";
-        stockRows = [];
-        stockHeaders = [];
+            currentHistory.length < SEQUENCE_LENGTH;
 
-        showError(preview, error.message);
-        predictionResult.textContent = "Prediction unavailable.";
-        setStatus("Error");
-    } finally {
-        loadButton.disabled = false;
-        downloadButton.disabled = false;
-    }
-}
-
-
-// ================= Preview rendering ==============
-
-function renderPreview() {
-    destroyChart();
-
-    const format = dataType.value;
-
-    formatBadge.textContent =
-        format === "line" ? "LINE GRAPH" : format.toUpperCase();
-
-    previewTitle.textContent =
-        format === "line" ? "Closing Price Chart" : "Data Preview";
-
-    previewDescription.textContent =
-        `${currentTicker} · ${stockRows.length.toLocaleString()} rows`;
-
-    if (format === "csv") {
-        renderTable();
-    } else if (format === "jsonl") {
-        renderJSONL();
-    } else {
-        renderChart();
-    }
-}
-
-function renderTable() {
-    preview.replaceChildren();
-
-    const wrapper = document.createElement("div");
-    wrapper.className = "table-wrap";
-
-    const table = document.createElement("table");
-    const thead = document.createElement("thead");
-    const headerRow = document.createElement("tr");
-
-    stockHeaders.forEach((header) => {
-        const th = document.createElement("th");
-        th.textContent = header;
-        headerRow.appendChild(th);
-    });
-
-    thead.appendChild(headerRow);
-
-    const tbody = document.createElement("tbody");
-
-    for (const row of stockRows) {
-        const tr = document.createElement("tr");
-
-        for (const header of stockHeaders) {
-            const td = document.createElement("td");
-            td.textContent = row[header] ?? "";
-            tr.appendChild(td);
+        if (currentHistory.length < SEQUENCE_LENGTH) {
+            stockSubtitle.textContent =
+                `Only ${currentHistory.length} valid rows available; ` +
+                `${SEQUENCE_LENGTH} are required for prediction.`;
         }
 
-        tbody.appendChild(tr);
+        setStatus("Data loaded");
+    } catch (error) {
+        console.error(error);
+
+        currentHistory = [];
+
+        stockSubtitle.textContent = "Could not load historical data.";
+        showError(preview, error.message);
+
+        if (chartContainer) {
+            chartContainer.hidden = true;
+        }
+
+        setStatus("Load failed");
+    } finally {
+        isLoading = false;
+        loadButton.disabled = false;
     }
-
-    table.append(thead, tbody);
-    wrapper.appendChild(table);
-    preview.appendChild(wrapper);
 }
 
-function renderJSONL() {
-    preview.replaceChildren();
+// --------------------------------------------------
+// Initialize the OHLC line graph
+// --------------------------------------------------
 
-    const pre = document.createElement("pre");
-    pre.className = "json-preview";
-
-    pre.textContent = stockRows
-        .map((row) => JSON.stringify(row))
-        .join("\n");
-
-    preview.appendChild(pre);
-}
-
-function findColumn(candidates) {
-    return stockHeaders.find((header) =>
-        candidates.includes(header.trim().toLowerCase())
-    );
-}
-
-function renderChart() {
-    preview.replaceChildren();
-
-    const dateColumn = findColumn([
-        "date", "datetime", "timestamp"
-    ]);
-
-    const closeColumn = findColumn([
-        "close", "adj close", "adj_close", "adjclose"
-    ]);
-
-    if (!dateColumn || !closeColumn) {
-        showError(
-            preview,
-            "The data must contain a date column and a closing-price column."
+function initializeChart() {
+    if (!chartCanvas || typeof Chart === "undefined") {
+        console.warn(
+            "Chart canvas or Chart.js is missing. " +
+            "The table and JSONL previews can still work."
         );
         return;
     }
 
-    const validRows = stockRows.filter((row) =>
-        row[dateColumn] &&
-        Number.isFinite(Number(row[closeColumn]))
-    );
-
-    if (!validRows.length) {
-        showEmpty("No valid closing-price values.");
-        return;
-    }
-
-    const container = document.createElement("div");
-    container.className = "chart-container";
-
-    const canvas = document.createElement("canvas");
-    container.appendChild(canvas);
-    preview.appendChild(container);
-
-    chartInstance = new Chart(canvas, {
+    stockChart = new Chart(chartCanvas, {
         type: "line",
 
         data: {
-            labels: validRows.map((row) => row[dateColumn]),
+            labels: [],
 
-            datasets: [{
-                label: `${currentTicker} Close`,
-                data: validRows.map((row) => Number(row[closeColumn])),
-                borderColor: "#8b9cff",
-                backgroundColor: "rgba(139, 156, 255, 0.12)",
-                borderWidth: 2,
-                pointRadius: validRows.length > 100 ? 0 : 2,
-                pointHoverRadius: 5,
-                fill: true,
-                tension: 0.15
-            }]
+            datasets: [
+                {
+                    label: "Open",
+                    data: [],
+                    borderColor: "#3b82f6",
+                    backgroundColor: "#3b82f6",
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    tension: 0.1,
+                },
+                {
+                    label: "High",
+                    data: [],
+                    borderColor: "#16a34a",
+                    backgroundColor: "#16a34a",
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    tension: 0.1,
+                },
+                {
+                    label: "Low",
+                    data: [],
+                    borderColor: "#dc2626",
+                    backgroundColor: "#dc2626",
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    tension: 0.1,
+                },
+                {
+                    label: "Close",
+                    data: [],
+                    borderColor: "#9333ea",
+                    backgroundColor: "#9333ea",
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    tension: 0.1,
+                },
+            ],
         },
 
         options: {
@@ -377,197 +348,405 @@ function renderChart() {
             maintainAspectRatio: false,
 
             interaction: {
+                mode: "index",
                 intersect: false,
-                mode: "index"
             },
 
             plugins: {
+                title: {
+                    display: true,
+                    text: "Historical OHLC Prices",
+                },
+
                 legend: {
-                    labels: { color: "#e8edf5" }
-                }
+                    display: true,
+                    position: "top",
+                },
+
+                tooltip: {
+                    callbacks: {
+                        label(context) {
+                            return (
+                                `${context.dataset.label}: $` +
+                                Number(context.parsed.y).toFixed(2)
+                            );
+                        },
+                    },
+                },
             },
 
             scales: {
                 x: {
-                    ticks: {
-                        color: "#8994a7",
-                        maxTicksLimit: 10
+                    title: {
+                        display: true,
+                        text: "Trading date",
                     },
-                    grid: {
-                        color: "rgba(137, 148, 167, 0.10)"
-                    }
                 },
 
                 y: {
-                    ticks: { color: "#8994a7" },
-                    grid: {
-                        color: "rgba(137, 148, 167, 0.10)"
-                    }
-                }
-            }
-        }
+                    title: {
+                        display: true,
+                        text: "Price (USD)",
+                    },
+
+                    ticks: {
+                        callback(value) {
+                            return "$" + value;
+                        },
+                    },
+                },
+            },
+        },
     });
 }
 
+// --------------------------------------------------
+// Update the four-line graph
+// --------------------------------------------------
 
-// ================= Prediction =====================
+function updateChart(rows) {
+    if (!stockChart) {
+        return;
+    }
+
+    stockChart.data.labels = rows.map(
+        row => String(row.Date).slice(0, 10)
+    );
+
+    const features = ["Open", "High", "Low", "Close"];
+
+    features.forEach((feature, index) => {
+        stockChart.data.datasets[index].data = rows.map(
+            row => row[feature]
+        );
+    });
+
+    stockChart.options.plugins.title.text =
+        `${currentTicker} — Historical OHLC Prices`;
+
+    stockChart.update();
+}
+
+// --------------------------------------------------
+// CSV table preview
+// --------------------------------------------------
+
+function renderTable(rows) {
+    preview.replaceChildren();
+
+    if (rows.length === 0) {
+        showError(preview, "No data available.");
+        return;
+    }
+
+    const table = document.createElement("table");
+    table.className = "data-table";
+
+    const columns = [
+        "Date", "Open", "High", "Low", "Close", "Volume",
+    ];
+
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+
+    for (const column of columns) {
+        const th = document.createElement("th");
+        th.textContent = column;
+        headerRow.appendChild(th);
+    }
+
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement("tbody");
+
+    // Display newest rows first in the table.
+    for (const row of [...rows].reverse()) {
+        const tr = document.createElement("tr");
+
+        for (const column of columns) {
+            const td = document.createElement("td");
+
+            if (column === "Date") {
+                td.textContent = String(row.Date).slice(0, 10);
+            } else if (column === "Volume") {
+                td.textContent = Number(row[column]).toLocaleString();
+            } else {
+                td.textContent = Number(row[column]).toFixed(2);
+            }
+
+            tr.appendChild(td);
+        }
+
+        tbody.appendChild(tr);
+    }
+
+    table.appendChild(tbody);
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "table-wrapper";
+    wrapper.appendChild(table);
+
+    preview.appendChild(wrapper);
+}
+
+// --------------------------------------------------
+// JSONL preview
+// --------------------------------------------------
+
+function renderJSONL(rows) {
+    preview.replaceChildren();
+
+    const pre = document.createElement("pre");
+    pre.className = "jsonl-preview";
+
+    // Limit displayed text to avoid rendering huge previews.
+    pre.textContent = rows
+        .slice(-100)
+        .map(row => JSON.stringify(row))
+        .join("\n");
+
+    preview.appendChild(pre);
+}
+
+// --------------------------------------------------
+// Show whichever format the user selected
+// --------------------------------------------------
+
+function renderSelectedFormat() {
+    if (currentHistory.length === 0) {
+        return;
+    }
+
+    const format = dataTypeSelect.value;
+
+    preview.hidden = format === "line";
+
+    if (chartContainer) {
+        chartContainer.hidden = format !== "line";
+    }
+
+    formatBadge.textContent = format.toUpperCase();
+
+    if (format === "line") {
+        previewTitle.textContent = "OHLC Line Graph";
+        previewDescription.textContent =
+            "Open, High, Low and Close across trading dates.";
+
+        updateChart(currentHistory);
+    } else if (format === "jsonl") {
+        previewTitle.textContent = "JSONL Preview";
+        previewDescription.textContent =
+            "One JSON record per historical trading row.";
+
+        renderJSONL(currentHistory);
+    } else {
+        previewTitle.textContent = "Data Preview";
+        previewDescription.textContent =
+            "Historical OHLCV records.";
+
+        renderTable(currentHistory);
+    }
+}
+
+// --------------------------------------------------
+// Download historical CSV
+// --------------------------------------------------
+
+function downloadCSV() {
+    if (!currentTicker) {
+        alert("Select a ticker first.");
+        return;
+    }
+
+    window.location.href =
+        `/stocks/csv/${encodeURIComponent(currentTicker)}`;
+}
+
+// --------------------------------------------------
+// Prediction
+// --------------------------------------------------
 
 async function runPrediction() {
-    if (
-        !currentTicker ||
-        currentTicker !== tickerSelect.value ||
-        stockRows.length < SEQUENCE_LENGTH
-    ) {
-        showError(
-            predictionResult,
-            "Load a ticker with at least 30 rows first."
+    if (currentHistory.length < SEQUENCE_LENGTH) {
+        alert(
+            `Please load at least ${SEQUENCE_LENGTH} historical rows.`
         );
         return;
     }
 
     predictButton.disabled = true;
-    setStatus("Predicting...");
-
-    predictionResult.textContent = "Running model inference...";
+    predictButton.textContent = "Predicting...";
 
     try {
-        // Send the latest 30 raw observations.
-        // Do not normalize or log-transform values in JavaScript.
-        const history = stockRows
-            .slice(-SEQUENCE_LENGTH)
-            .map((row) => {
-                const raw = {
-                    Date: row.Date
-                };
+        // Send the most recent 30 rows in chronological order.
+        const history = currentHistory.slice(-SEQUENCE_LENGTH);
 
-                for (const feature of FEATURES) {
-                    raw[feature] = Number(row[feature]);
-                }
-
-                return raw;
-            });
-
-        const response = await fetchResponse("/predict", {
+        const result = await fetchJSON("/predict", {
             method: "POST",
 
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
 
             body: JSON.stringify({
                 ticker: currentTicker,
-                history: history
-            })
+                history: history,
+            }),
         });
 
-        const result = await response.json();
-
-        renderPrediction(result);
-        setStatus("Prediction complete");
+        displayPrediction(result);
     } catch (error) {
+        console.error(error);
         showError(predictionResult, error.message);
-        setStatus("Prediction failed");
     } finally {
         predictButton.disabled =
-            stockRows.length < SEQUENCE_LENGTH;
+            currentHistory.length < SEQUENCE_LENGTH;
+
+        predictButton.textContent = "Run Prediction";
     }
 }
 
-function renderPrediction(result) {
+// --------------------------------------------------
+// Display prediction response
+// --------------------------------------------------
+
+function displayPrediction(result) {
     predictionResult.replaceChildren();
+
+    // Support responses with either:
+    // { prediction: { Open: ..., Close: ... } }
+    // or { Open: ..., Close: ... }
+    const values =
+        result.prediction ??
+        result.predictions ??
+        result;
+
+    // Handle a prediction returned as an array of values.
+    let prediction = values;
+
+    if (Array.isArray(values)) {
+        prediction = {
+            Open: values[0],
+            High: values[1],
+            Low: values[2],
+            Close: values[3],
+            Volume: values[4],
+        };
+    }
+
+    // Also support a nested list containing one prediction.
+    if (Array.isArray(prediction) && prediction.length === 1) {
+        prediction = prediction[0];
+    }
+
+    const aliases = {
+        Open: ["Open", "open", "predicted_open"],
+        High: ["High", "high", "predicted_high"],
+        Low: ["Low", "low", "predicted_low"],
+        Close: ["Close", "close", "predicted_close"],
+        Volume: ["Volume", "volume", "predicted_volume"],
+    };
 
     const grid = document.createElement("div");
     grid.className = "prediction-grid";
 
-    for (const feature of FEATURES) {
+    let displayed = 0;
+
+    for (const [feature, names] of Object.entries(aliases)) {
+        const key = names.find(name =>
+            prediction &&
+            prediction[name] !== undefined &&
+            prediction[name] !== null
+        );
+
+        if (!key) {
+            continue;
+        }
+
+        const value = Number(prediction[key]);
+
+        if (!Number.isFinite(value)) {
+            continue;
+        }
+
         const card = document.createElement("div");
         card.className = "prediction-value";
 
-        const label = document.createElement("span");
-        label.className = "label";
+        const label = document.createElement("p");
+        label.className = "muted";
         label.textContent = feature;
 
-        const value = document.createElement("span");
-        value.className = "value";
-
-        const number = Number(result.prediction[feature]);
-
-        value.textContent = Number.isFinite(number)
-            ? number.toLocaleString("en-US", {
-                maximumFractionDigits: 4
+        const number = document.createElement("h3");
+        number.textContent = feature === "Volume"
+            ? value.toLocaleString(undefined, {
+                maximumFractionDigits: 2,
             })
-            : "Unavailable";
+            : "$" + value.toFixed(4);
 
-        card.append(label, value);
+        card.append(label, number);
         grid.appendChild(card);
+
+        displayed++;
     }
 
-    const date = document.createElement("p");
-    date.className = "prediction-date";
-    date.textContent =
-        `Last input date: ${result.last_input_date ?? "Unknown"}`;
+    if (displayed === 0) {
+        const message = document.createElement("p");
+        message.className = "empty-message";
+        message.textContent =
+            "Prediction received, but the response format was not recognized.";
 
-    predictionResult.append(grid, date);
-}
+        const details = document.createElement("pre");
+        details.textContent = JSON.stringify(result, null, 2);
 
-
-// ================= Downloads ======================
-
-async function downloadStock() {
-    const ticker = tickerSelect.value;
-
-    if (!ticker) {
+        predictionResult.append(message, details);
         return;
     }
 
-    downloadButton.disabled = true;
+    predictionResult.appendChild(grid);
 
-    try {
-        const format = dataType.value === "jsonl" ? "jsonl" : "csv";
+    const date = result.last_input_date ?? result.last_date;
 
-        const response = await fetchResponse(
-            `/stocks/${format}/${encodeURIComponent(ticker)}`
-        );
+    if (date) {
+        const dateText = document.createElement("p");
+        dateText.className = "muted";
+        dateText.textContent = `Last input date: ${date}`;
 
-        const blob = await response.blob();
-        const url = URL.createObjectURL(blob);
-
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = `${ticker}.${format}`;
-
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-
-        URL.revokeObjectURL(url);
-        setStatus("Download complete");
-    } catch (error) {
-        showError(preview, error.message);
-        setStatus("Download failed");
-    } finally {
-        downloadButton.disabled = false;
+        predictionResult.appendChild(dateText);
     }
+
+    const note = document.createElement("p");
+    note.className = "muted";
+    note.textContent =
+        "These are model predictions for the next observation.";
+
+    predictionResult.appendChild(note);
 }
 
+// --------------------------------------------------
+// Event listeners
+// --------------------------------------------------
 
-// ================= Event listeners =================
-
-loadButton.addEventListener("click", loadStock);
-
-tickerSelect.addEventListener("change", loadStock);
-
-dataType.addEventListener("change", () => {
-    if (stockRows.length) {
-        renderPreview();
-    }
+loadButton.addEventListener("click", () => {
+    loadStock(tickerSelect.value);
 });
+
+tickerSelect.addEventListener("change", () => {
+    loadStock(tickerSelect.value);
+});
+
+downloadButton.addEventListener("click", downloadCSV);
 
 predictButton.addEventListener("click", runPrediction);
 
-downloadButton.addEventListener("click", downloadStock);
+dataTypeSelect.addEventListener("change", renderSelectedFormat);
 
+// --------------------------------------------------
+// Start application
+// --------------------------------------------------
 
-// ================= Initialization ==================
+if (chartCanvas && typeof Chart !== "undefined") {
+    initializeChart();
+}
 
 loadTickers();
